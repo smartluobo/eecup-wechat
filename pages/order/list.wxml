@@ -1,0 +1,63 @@
+<template name="orderItem">
+  <view bindtap="navigateToOrderDetail" class="itemWrap" data-id="{{item.orderId}}" id="order_itemWrap">
+    <view class="hd">
+      <text class="orderId">{{item.selfGet === 0 ? '自提订单' : '外卖订单' }}：{{item.orderId}}</text>
+        <view wx:if="{{item.status===0}}">
+            <view>未支付</view>
+        </view>
+        <view wx:elif="{{item.status===1}}">
+              <view>已支付</view>
+        </view>
+        <view wx:elif="{{item.status===2}}">
+              <view>制作完成</view>
+        </view>
+        <view wx:elif="{{item.status===3}}">
+              <view>订单关闭</view>
+        </view>
+        <view wx:elif="{{item.status===4}}">
+              <view>超时关闭</view>
+        </view>
+        <view wx:elif="{{item.status===5}}">
+              <view>订单取消</view>
+        </view>
+    </view>
+    <view class="bd">
+      <view class="top">
+        <view class="shopDesc">
+          <text class="shopName">{{item.selfGet===0?item.storeName:item.address}}</text>
+          <text class="shopId" wx:if="{{item.selfGet===0}}">{{item.shopId}}</text>
+        </view>
+        <text class="orderTime">{{item.createDateStr}}</text>
+      </view>
+      <view class="goodsDesc">
+        <text class="goodsName">{{item.goodsName}}</text>
+        <!-- <text class="goodsCount">共 {{item.goodsCount}} 件商品</text> -->
+      </view>
+      <view class="btm">
+        <text class="totalAmount">￥{{item.payment}}</text>
+        <view class="btnWrap">
+          <button catchtap="gotoPayment" data-id="{{index}}"  id="handlerItemEvent" wx:if="{{item.status===0}}">去支付</button>
+        </view>
+      </view>
+      <view class="takeCode"  wx:if="{{item.selfGet===0&&(item.status==1||item.status==2)}}">
+      取餐码：{{item.takeCode}}
+      </view>
+
+    </view>
+  </view>
+</template>
+
+<view class="container list">
+  <view class="listWrap">
+    <template is="orderItem"  data="{{item:item,index:index}}" wx:for="{{listData}}" wx:key="index"></template>
+    <view class="empty" wx:if="{{!listData}}">
+      <image src="https://www.eecup.cn/tea/image/eecup/order_empty.png" />
+      <view>
+        暂无订单数据
+      </view>
+    </view>
+  </view>
+  <view>
+    <image animation="{{animation}}" bindtap="navigateToInviter" class="coffeeCart {{fixedHeight?'fixedHeight':''}}" id="btn_navigateToInviter" src="{{shareImg}}" wx:if="{{listData.length>0}}"></image>
+  </view>
+</view>

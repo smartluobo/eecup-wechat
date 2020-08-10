@@ -1,0 +1,282 @@
+page {
+    background: #fbfbfb;
+}
+
+.sending_tips {
+    position: relative;
+    background: #FFF3E0;
+    font-size: 24rpx;
+    line-height: 64rpx;
+    padding: 0 30rpx;
+}
+
+.sending_tips::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 30rpx;
+    width: 12rpx;
+    height: 12rpx;
+    border: 2rpx solid #404040;
+    border-color: #404040 #404040 transparent transparent;
+    transform: translateY(-50%) rotateZ(45deg);
+}
+
+.card_panle {
+    margin-top: 10rpx;
+    padding: 30rpx;
+    background: #fff;
+}
+
+.card_item_wrap {
+    overflow: hidden;
+    margin-bottom: 20rpx;
+}
+
+.card_item_wrap:nth-last-child(1) {
+    border-bottom: 0;
+}
+
+.card_item {
+    position: relative;
+    box-sizing: border-box;
+    height: 160rpx;
+    border: 2rpx solid #e0e0e0;
+}
+
+.card_item::before,.card_item::after {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    width: 30rpx;
+    height: 24rpx;
+    border: 2rpx solid #e0e0e0;
+    border-radius: 50%;
+    left: 172rpx;
+    background: #fff;
+}
+
+.card_item::before {
+    top: -15rpx;
+}
+
+.card_item::after {
+    bottom: -15rpx;
+}
+
+.card_content {
+    position: relative;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.card_content::before {
+    content: '';
+    position: absolute;
+    height: 100rpx;
+    border-left: 2rpx dashed #e0e0e0;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 184rpx;
+}
+
+.card_content>view {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.card_left {
+    width: 184rpx;
+    text-align: center;
+}
+
+.card_price {
+    font-size: 48rpx;
+}
+
+.card_tips {
+    font-size: 22rpx;
+    color: #999;
+    line-height: 32rpx;
+}
+
+.card_center {
+    flex: 1;
+    padding-left: 50rpx;
+}
+
+.card_title {
+    display: flex;
+    font-size: 28rpx;
+    line-height: 40rpx;
+}
+
+.card_title_text {
+    box-sizing: border-box;
+    max-width: 280rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.card_text_tips {
+    margin-left: 10rpx;
+    vertical-align: inherit;
+    width: 24rpx;
+    height: 40rpx;
+    background: url('https://www.eecup.cn/tea/image/eecup/icon/coffeebank/prompt_icon.png') center center no-repeat;
+    background-size: contain;
+    vertical-align: middle;
+}
+
+.card_limit_time {
+    font-size: 22rpx;
+    line-height: 32rpx;
+    color: #999;
+}
+
+.card_item .card_right {
+    padding-right: 12rpx;
+    flex-direction: row;
+    align-items: center;
+}
+
+.card_minus {
+    width: 38rpx;
+    height: 38rpx;
+    background: #fff url('https://www.eecup.cn/tea/image/eecup/icon/minus_icon.png') no-repeat;
+    background-size: contain;
+}
+
+.card_add {
+    width: 38rpx;
+    height: 38rpx;
+    background: #fff url('https://www.eecup.cn/tea/image/eecup/icon/add_icon.png') no-repeat;
+    background-size: contain;
+}
+
+.card_count {
+    padding: 0 10rpx;
+    line-height: 38rpx;
+    font-size: 26rpx;
+    color: #7FABD3;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.card_modal_count {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%,-50%,0);
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    background: rgba(0,0,0,.5);
+    color: #fff;
+    font-size: 30rpx;
+    line-height: 80rpx;
+    text-align: center;
+}
+
+.btn_bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 18rpx 30rpx;
+    background: #fff;
+}
+
+.ipx_bottom {
+    padding-bottom: 38rpx;
+}
+
+.send_friends {
+    border-radius: 6rpx;
+    color: #fff;
+    background: #f2cba4;
+    font-size: 30rpx;
+    line-height: 84rpx;
+}
+
+.btn_bottom .send_friends[disabled] {
+    color: #fff;
+    background: #f2cba4;
+    opacity: .5;
+}
+
+.not_coffee_card {
+    text-align: center;
+    margin-top: 180rpx;
+}
+
+.not_img {
+    width: 250rpx;
+    height: 172rpx;
+    margin-bottom: 40rpx;
+}
+
+.not_txt {
+    font-size: 26rpx;
+    color: #666;
+    line-height: 36rpx;
+    margin-bottom: 80rpx;
+}
+
+.add_coffee_card {
+    display: inline-block;
+    width: 240rpx;
+    line-height: 80rpx;
+    text-align: center;
+    color: #fff;
+    font-size: 30rpx;
+    background: #f2cba4;
+}
+
+.dialog_mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.7);
+}
+
+.dialog_body {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%,-50%,0);
+    width: 540rpx;
+    background: #fff;
+    border-radius: 12rpx;
+    overflow: hidden;
+    font-size: 30rpx;
+    line-height: 40rpx;
+}
+
+.dialog_content {
+    padding: 74rpx 60rpx 70rpx;
+    text-align: center;
+}
+
+.dialog_btn {
+    font-size: 30rpx;
+    line-height: 84rpx;
+    background: #fff;
+    color: #f2cba4;
+    border-top: 1rpx solid #e6e6e6;
+    border-radius: 0;
+}
+
+.dialog_btn::after,.dialog_btn::before {
+    content: none;
+}
+
+button::before,button::after {
+    content: none;
+}

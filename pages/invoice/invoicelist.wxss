@@ -1,0 +1,202 @@
+.invoiceListPage {
+    width: 100%;
+    min-height: 100vh;
+    background: #fbfbfb;
+    box-sizing: border-box;
+    font-family: PingFangSC-Regular;
+    overflow-x: hidden;
+    padding-top: 90rpx;
+}
+
+.invoiceHead {
+    width: 100%;
+    height: 90rpx;
+    line-height: 90rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #333;
+    border: 1rpx solid rgba(229,229,229,0.5);
+    background-color: #fff;
+    position: fixed;
+    left: 0rpx;
+    top: 0rpx;
+    display: flex;
+    justify-content: space-around;
+    z-index: 10;
+}
+
+.orderList {
+    width: 50%;
+    text-align: center;
+    border-right: 1rpx solid rgba(229,229,229,0.2);
+}
+
+.walletList {
+    width: 50%;
+    text-align: center;
+}
+
+.currentItem {
+    border-bottom: 4rpx solid #f2cba4;
+    color: #f2cba4;
+}
+
+.explanText {
+    font-size: 26rpx;
+    color: #333;
+    position: relative;
+    margin: 24rpx auto auto 88rpx;
+}
+
+.explanText::before {
+    content: ' ';
+    width: 48rpx;
+    height: 48rpx;
+    background: url('https://www.eecup.cn/tea/image/eecup/icon/invoice/icon_explain.png') no-repeat center;
+    background-size: 100%;
+    position: absolute;
+    left: -58rpx;
+    top: -6rpx;
+}
+
+.invoiceList {
+    margin-top: 22rpx;
+    margin-bottom: 120rpx;
+}
+
+.invoiceItem {
+    width: 100%;
+    height: 206rpx;
+    display: flex;
+    background-color: #fff;
+    border-top: 1rpx solid rgba(229,229,229,0.2);
+    border-bottom: 1rpx solid rgba(229,229,229,0.2);
+    margin-bottom: 20rpx;
+}
+
+.checkBox {
+    width: 104rpx;
+}
+
+.icon_check,.icon_noCheck {
+    width: 44rpx;
+    height: 44rpx;
+    margin: 82rpx auto auto auto;
+    display: block;
+}
+
+.invoiceName {
+    width: 150rpx;
+}
+
+.orderMoney,.money {
+    margin-top: 30rpx;
+}
+
+.orderId,.id {
+    margin-top: 12rpx;
+}
+
+.orderTime,.time {
+    margin-top: 14rpx;
+}
+
+.orderTime,.orderId,.orderMoney {
+    font-size: 28rpx;
+}
+
+.money,.id,.time {
+    font-size: 28rpx;
+    color: #2a2a2a;
+}
+
+.noData,.noInvoice {
+    margin-top: 200rpx;
+    font-size: 26rpx;
+    color: #666;
+    text-align: center;
+}
+
+.invoiceFoot {
+    width: 100%;
+    position: fixed;
+    bottom: 0rpx;
+    z-index: 1;
+    background: #fff;
+    border-top: 1rpx solid #ddd;
+}
+
+.footBox {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ipxBox {
+    width: 100%;
+    height: 50rpx;
+    display: block;
+}
+
+.nextBtn {
+    width: 260rpx;
+    background-color: #f2cba4;
+    font-size: 34rpx;
+    color: #fff;
+    text-align: center;
+    line-height: 120rpx;
+}
+
+.totalBox {
+    width: calc(100% - 260rpx);
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkAll {
+    width: 180rpx;
+    position: relative;
+}
+
+.icon_checkAll,.icon_noCheckAll {
+    width: 44rpx;
+    height: 44rpx;
+    margin: 38rpx 12rpx auto 30rpx;
+}
+
+.checkAllText {
+    font-size: 30rpx;
+    color: #333;
+    position: absolute;
+    left: 86rpx;
+    top: 39rpx;
+}
+
+.total {
+    font-size: 24rpx;
+    margin-right: 40rpx;
+    text-align: right;
+}
+
+.totalMoney {
+    font-size: 48rpx;
+    line-height: 66rpx;
+    margin-top: 10rpx;
+    display: inline-block;
+}
+
+.orderNum {
+    color: #666;
+}
+
+.icon_no {
+    width: 250rpx;
+    height: 150rpx;
+    display: block;
+    margin: 0rpx auto 40rpx auto;
+}
+
+.noText {
+    text-align: center;
+    color: #666;
+    font-size: 26rpx;
+}

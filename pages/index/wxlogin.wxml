@@ -1,0 +1,21 @@
+<view class="wxLogin">
+    <view class="middleBox" wx:if="{{userInfo&&userInfo.imgUrl&&userInfo.userName}}">
+        <image class="headPortraits" src="{{userInfo.imgUrl!=''?userInfo.imgUrl:'https://www.eecup.cn/tea/image/eecup/icon/loginImage.png'}}"></image>
+        <view class="wxName">{{userInfo.userName}}</view>
+        <view class="helloTxt">欢迎回来</view>
+    </view>
+    <image class="middleBox noUser" src="https://www.eecup.cn/tea/image/eecup/icon/loginImage.png" wx:else></image>
+    <!-- <button bindgetphonenumber="bindGetPhoneNumber" class="loginBtn wxBtn" data-loginType="wx" openType="getPhoneNumber" wx:if="{{canIUse&&!bindStatus}}">微信一键登录</button>
+    <button bindtap="wxLogin" class="loginBtn wxBtn" data-loginType="wx" id="wxLogin" wx:else>微信一键登录</button> -->
+
+    <button class="loginBtn wxBtn" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">微信一键登录</button>
+
+<!-- 
+    <button bindtap="phoneLogin" class="loginBtn phoneBtn" data-loginType="wx" id="phoneLogin">手机号验证码登录</button>
+    <view class="warp {{dialog?'show':'hide'}}">
+        <view class="content">
+            <view class="contentText">已解绑账户，需要在次绑定</view>
+            <button bindgetphonenumber="bindGetPhoneNumber" class="againBtn" data-loginType="again" openType="getPhoneNumber" wx:if="{{canIUse}}">确定</button>
+        </view>
+    </view> -->
+</view>

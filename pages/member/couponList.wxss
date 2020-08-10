@@ -1,0 +1,206 @@
+.header {
+    height: 315rpx;
+    width: 750rpx;
+    background: #f6f6f6;
+}
+
+.tab-left {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background: #fff;
+}
+
+.item {
+    height: 102rpx;
+    width: 710rpx;
+    line-height: 102rpx;
+    font-size: 30rpx;
+    color: #333;
+    padding-left: 40rpx;
+    position: relative;
+    border-bottom: 1rpx solid #e6e6e6;
+}
+
+.item:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 38rpx;
+    right: 36rpx;
+    background: url("http://image.domolife.cn/wechatIcon/next.png") no-repeat;
+    background-size: 15rpx 28rpx;
+    width: 15rpx;
+    height: 28rpx;
+}
+
+.tab {
+    float: left;
+    width: 375rpx;
+    text-align: center;
+    font-size: 28rpx;
+    color: #666;
+    height: 88rpx;
+    line-height: 88rpx;
+}
+
+.coupon_box {
+    padding-top: 90rpx;
+    background: #f5f5f5;
+    padding-bottom: 10rpx;
+}
+
+.active {
+    float: left;
+    width: 375rpx;
+    text-align: center;
+    font-size: 28rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    color: #0a88fa;
+}
+
+.coupon_list0 {
+    width: 679rpx;
+    height: 188rpx;
+    margin: 30rpx auto;
+    position: relative;
+    color: #fff;
+    background: url('https://www.eecup.cn/tea/image/eecup/coupons_background_new.png') no-repeat center;
+    background-size: 100% 188rpx;
+    overflow: hidden;
+}
+.coupon_list1 {
+    width: 679rpx;
+    height: 188rpx;
+    margin: 30rpx auto;
+    position: relative;
+    color: #fff;
+    background: url('https://www.eecup.cn/tea/image/eecup/coupons_background_store.png') no-repeat center;
+    background-size: 100% 188rpx;
+    overflow: hidden;
+}
+.expire{
+    width: 50rpx;
+    height: 50rpx;
+    margin: 30rpx auto;
+    position: absolute;
+    right: 65rpx;
+    top: 30rpx;    
+}
+.expire image{
+    width: 120rpx;
+    height: 120rpx;
+    margin: 30rpx auto;
+    position: absolute;
+    color: #fff;
+}
+.ndb_price {
+    width: 33.80281690140845%;
+    height: 124rpx;
+    display: inline-block;
+    box-sizing: border-box;
+    float: left;
+    padding: 20rpx 0 0 0;
+}
+
+.ndb_price_top,.ndb_price_top1 {
+    display: block;
+    width: 100%;
+    /* color: #333; */
+    text-align: center;
+    height: 104rpx;
+    line-height: 104rpx;
+    overflow: hidden;
+}
+
+.ndb_price_top text:first-child {
+    font-size: 65rpx;
+}
+
+.ndb_price_top text:last-child {
+    font-size: 28rpx;
+}
+.ndb_price_top1 text:first-child{
+    font-size: 28rpx;
+}
+.ndb_price_top1 text:last-child{
+    font-size: 65rpx;
+}
+.ndb_price_bottom {
+    display: block;
+    width: 100%;
+    text-align: center;
+    height: 24rpx;
+    line-height: 24rpx;
+    font-size: 24rpx;
+    overflow: hidden;
+}
+
+.ndb_detail {
+    width: 66.19718309859155%;
+    display: inline-block;
+    box-sizing: border-box;
+    position: relative;
+    
+}
+
+.ndb_detail_left {
+    display: block;
+    width: 100%;
+    /* height: 50rpx; */
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-left: 20rpx;
+    line-height: 50rpx;
+    padding-top: 15rpx;
+}
+.ndb_detail_left_title {
+    
+    font-size: 32rpx;
+    color: #333;
+}
+
+.ndb_detail_right {
+    display: block;
+    font-size: 26rpx;
+    color: #666;
+    line-height: 50rpx;
+    box-sizing: border-box;
+    padding-left: 20rpx;
+    padding-top: 10rpx;
+    overflow: hidden;
+}
+
+
+
+.ndb_time {
+    width: 100%;
+    height: 60rpx;
+    display: block;
+    vertical-align: top;
+    box-sizing: border-box;
+    font-size: 26rpx;
+    color: #666;
+    line-height: 46rpx;
+    padding-top: 15rpx;
+    padding-left: 20rpx;
+}
+.empty{
+    background: #f5f5f5;
+    text-align: center;
+    height: 100vh;
+    align-content: center;
+}
+.empty image{
+    width:261rpx;
+    height: 182rpx;
+    padding-top: 350rpx;
+}
+.empty view{
+    color: #666;
+}
+

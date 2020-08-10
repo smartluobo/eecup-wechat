@@ -1,0 +1,7 @@
+<view class="invoiceManage">
+    <view class="manageContent" wx:for="{{list}}" wx:key="{{index}}">
+        <view bindtap="goLink" class="manageList {{item.lastIndex?'noBorder':''}}" data-page="{{item.page}}" id="goLink">
+      {{item.name}}
+    </view>
+    </view>
+</view>

@@ -1,0 +1,57 @@
+.res-container {
+    margin-top: 90rpx;
+    text-align: center;
+    padding-top: 240rpx;
+    background-size: 160rpx 160rpx;
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+
+.res-container.success {
+    background-image: url('https://www.eecup.cn/tea/image/eecup/icon/coffeebank/success_icon.png');
+}
+
+.res-container.fail {
+    background-image: url('https://www.eecup.cn/tea/image/eecup/icon/coffeebank/fail_icon.png');
+}
+
+.res-container .title {
+    font-size: 48rpx;
+    line-height: 48rpx;
+    color: #333333;
+    margin-bottom: 40rpx;
+}
+
+.res-container .desc {
+    font-size: 26rpx;
+    line-height: 34rpx;
+    color: #333333;
+    margin-bottom: 120rpx;
+}
+
+.btn-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 40rpx;
+}
+
+.btn {
+    height: 80rpx;
+    width: 304rpx;
+    font-size: 30rpx;
+    color: #f2cba4;
+    background: #fff;
+    border: 1px solid #f2cba4;
+    border-radius: 4rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8rpx;
+}
+
+.btn.color-dark {
+    color: #fff;
+    background: #f2cba4;
+}

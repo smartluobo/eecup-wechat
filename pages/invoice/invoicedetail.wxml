@@ -1,0 +1,47 @@
+<view class="invoiceDetail">
+    <view class="listItem total">
+        <text>共</text>
+        <text class="blueColor">{{detail.receiptNum}}</text>
+        <text>张发票，含</text>
+        <text class="blueColor">{{detail.orderNum}}</text>个订单
+  </view>
+    <view class="listItem invoiceType">
+        <view class="leftName">发票类型</view>
+        <view class="rightValue">{{detail.receiptType}}</view>
+        <view bindtap="checkImg" class="preInvoice blueColor" id="checkImg" wx:if="{{detail.reciptStatusNum==2&&detail.imgUrls.length>0}}">查看电子发票</view>
+    </view>
+    <view class="listItem">
+        <view class="leftName">开票状态</view>
+        <view class="rightValue">{{detail.reciptStatus}}</view>
+    </view>
+    <view class="listItem">
+        <view class="leftName">发票金额</view>
+        <view class="rightValue">￥{{detail.receiptAmount}}</view>
+    </view>
+    <view class="listItem">
+        <view class="leftName">发票抬头</view>
+        <view class="rightValue">{{detail.titleType}}</view>
+    </view>
+    <view class="listItem">
+        <view class="leftName">申请时间</view>
+        <view class="rightValue">{{detail.applyTime}}</view>
+    </view>
+    <view class="listItem emailItem">
+        <view class="leftName">邮箱地址</view>
+        <view class="rightValue">{{detail.email}}</view>
+    </view>
+    <view class="reSubmitFoot" wx:if="{{detail.reciptStatusNum==2}}">
+        <view bindtap="reSubmit" class="againBtn" id="reSubmit">重发发票</view>
+        <view class="ipxBox" wx:if="{{isIpx}}"></view>
+    </view>
+    <view bindtap="colseWarp" class="dialogWarp" id="colseWarp" wx:if="{{dialogFlag}}"></view>
+    <view class="dialogContent" wx:if="{{dialogFlag}}">
+        <view class="title">确认邮箱地址</view>
+        <view>
+            <view class="emailName">邮箱地址</view>
+            <input bindinput="emailInput" class="emailInput" placeholder="请输入邮箱（必填）" placeholderStyle="color:#BFBFBF;" value="{{email}}"></input>
+            <view bindtap="submit" class="submitBtn {{email?'doSubmit':''}} " id="submit">提交申请</view>
+        </view>
+        <view class="ipxBox" wx:if="{{isIpx}}"></view>
+    </view>
+</view>

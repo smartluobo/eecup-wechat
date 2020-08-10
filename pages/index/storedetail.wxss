@@ -1,0 +1,184 @@
+.storeDetail {
+    font-family: PingFangSC-Regular;
+    min-height: 100vh;
+    background: #fbfbfb;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.storeInfo {
+    background-color: #fff;
+    border-top: 1rpx solid rgba(229,229,229,0.2);
+    padding: 0rpx 30rpx;
+    position: relative;
+}
+
+.icon_phone {
+    width: 40rpx;
+    height: 40rpx;
+    position: absolute;
+    right: 40rpx;
+    top: 40rpx;
+}
+
+.storeName {
+    font-size: 30rpx;
+    line-height: 42rpx;
+    color: #333;
+    margin-top: 40rpx;
+    display: inline-block;
+    position: relative;
+}
+
+.icon_level {
+    width: 80rpx;
+    height: 24rpx;
+    position: absolute;
+    right: -100rpx;
+    top: 10rpx;
+}
+
+.storeTime,.storeAddress {
+    font-size: 26rpx;
+    line-height: 36rpx;
+    color: #666;
+    display: flex;
+}
+
+.storeTime {
+    margin: 32rpx auto 10rpx auto;
+}
+
+.leftName {
+    min-width: 140rpx;
+}
+
+.timeItem {
+    margin-bottom: 6rpx;
+}
+
+.storeAddress {
+    padding-bottom: 40rpx;
+}
+
+.storePicture {
+    margin-top: 20rpx;
+    background-color: #fff;
+    padding: 0rpx 10rpx 10rpx 30rpx;
+}
+
+.boxName {
+    font-size: 30rpx;
+    line-height: 30rpx;
+    margin-bottom: 30rpx;
+    padding-top: 30rpx;
+}
+
+.pictureBox {
+    margin: 30rpx auto;
+    font-size: 0rpx;
+}
+
+.shopImage {
+    width: 216rpx;
+    height: 216rpx;
+    border-radius: 6rpx;
+    overflow: hidden;
+    display: inline-block;
+    margin-right: 20rpx;
+    margin-bottom: 20rpx;
+}
+
+.qualificationImage {
+    width: 336rpx;
+    height: 216rpx;
+    margin-right: 18rpx;
+}
+
+.pictureBox image {
+    max-width: 150%;
+    max-height: 100%;
+    display: block;
+}
+
+.qualifications image {
+    width: 336rpx;
+    height: 216rpx;
+}
+
+.qualifications image:first-child {
+    margin-right: 20rpx;
+}
+
+.mapBox {
+    margin: 20rpx auto;
+    background-color: #fff;
+    padding: 0rpx 30rpx;
+    box-sizing: border-box;
+}
+
+.mapBox .map {
+    width: 690rpx;
+    height: 215rpx;
+    margin: 0rpx auto;
+    padding-bottom: 30rpx;
+}
+
+.storeDetailFoot {
+    width: 100%;
+    position: fixed;
+    bottom: 0rpx;
+    background-color: #fff;
+    border-top: 1rpx solid rgba(229,229,229,0.2);
+}
+
+.ipxBox {
+    width: 100%;
+    height: 50rpx;
+    display: block;
+}
+
+.storeDetailFoot .goBtn {
+    width: 690rpx;
+    height: 84rpx;
+    line-height: 84rpx;
+    background: #f2cba4;
+    border-radius: 6px;
+    text-align: center;
+    margin: 16rpx 30rpx;
+    font-size: 30rpx;
+    color: #fff;
+}
+
+.imgWarp {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0rpx;
+    left: 0rpx;
+    background-color: rgba(0,0,0,1);
+    z-index: 1;
+}
+
+.swiper {
+    width: 100%;
+    height: 800rpx;
+    position: absolute;
+    z-index: 2;
+    top: 190rpx;
+    left: 0rpx;
+}
+
+.slide-image {
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 800rpx;
+}
+
+.shopImage .picture {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

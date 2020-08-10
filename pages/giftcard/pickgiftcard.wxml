@@ -1,0 +1,31 @@
+<form bind:submit="next" id="pickGiftCard">
+    <scroll-view scrollY class="scroll" scrollIntoView="{{scrollEle}}" style="height: 100vh;">
+        <view class="wrap {{isIpx?'ipx_class':''}}">
+            <image class="gift_card_img" src="{{giftCardImage}}"></image>
+            <view class="gift_title">
+                <text>送上你的祝福语</text>
+            </view>
+            <block wx:if="{{!loading}}">
+                <view class="blessing_text_wrap">
+                    <view bind:tap="checkBlessing" class="blessing_text {{index===activeCheck?'active':''}}" data-active="{{index}}" id="checkBlessing" wx:for="{{blessingsList}}" wx:key="{{ index }}">
+                        <text>{{item}}</text>
+                        <text class="blessing_icon"></text>
+                    </view>
+                    <view bind:tap="showTextarea" class="blessing_text {{activeCheck===blessingsList.length?'active':''}}" data-active="{{blessingsList.length}}" id="showTextarea">
+                        <text>自定义祝福语</text>
+                        <text class="blessing_icon"></text>
+                    </view>
+                </view>
+                <view class="gift_text_input_wrap" hidden="{{activeCheck!==blessingsList.length}}">
+                    <textarea bindblur="textareaBlur" bindinput="contentChange" class="gift_text_input" cursorSpacing="80" focus="{{textFocus}}" hidden="{{!showTextarea}}" maxlength="50" name="blessingsContent" placeholder="请输入祝福语" placeholderClass="placeholder" value="{{text}}"></textarea>
+                    <view bind:tap="showTextarea" class="blur_show {{text?'':'placeholder'}}" hidden="{{showTextarea}}" id="showTextarea">{{text||'请输入祝福语'}}</view>
+                    <text class="limit_text">{{textLength}}/50</text>
+                </view>
+                <view class="visual_block" id="visual_block" wx:if="{{activeCheck===blessingsList.length}}"></view>
+            </block>
+        </view>
+    </scroll-view>
+    <view class="bottom_btn">
+        <button disabled="{{loading}}" formType="submit">下一步</button>
+    </view>
+</form>

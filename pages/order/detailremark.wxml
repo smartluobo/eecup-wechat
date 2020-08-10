@@ -1,0 +1,3 @@
+<view class="remarkBox">
+{{remark}}
+</view>

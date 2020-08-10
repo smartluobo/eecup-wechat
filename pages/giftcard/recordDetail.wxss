@@ -1,0 +1,225 @@
+page {
+    background: #f7f7f7;
+}
+
+.recordDetail {
+    width: 100%;
+    height: 100%;
+    background: #f7f7f7;
+    font-family: PingFangSC-Medium;
+}
+
+.cardInfo {
+    margin: 32rpx 0rpx 12rpx 0rpx;
+    padding: 0rpx 40rpx 32rpx 40rpx;
+    text-align: center;
+    background-color: #fff;
+}
+
+.cardImg {
+    width: 670rpx;
+    height: 420rpx;
+    margin-bottom: 48rpx;
+    border-radius: 24rpx;
+    box-shadow: 0 12rpx 30rpx rgba(0,0,0,0.1);
+}
+
+.cardText {
+    font-family: PingFangSC-Regular;
+    font-size: 26rpx;
+    color: #333;
+    line-height: 36rpx;
+    text-align: left;
+    word-break: break-all;
+}
+
+.cardFromTo {
+    font-size: 24rpx;
+    line-height: 34rpx;
+    color: #999;
+    text-align: left;
+    margin-top: 16rpx;
+}
+
+.cardBox {
+    background: #fff;
+    padding: 22rpx 30rpx 30rpx 30rpx;
+    margin-bottom: 100rpx;
+}
+
+.totalTip {
+    display: flex;
+    justify-content: space-between;
+    line-height: 40rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    margin-bottom: 20rpx;
+}
+
+.sendTime {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.card-item {
+    align-items: center;
+    justify-content: center;
+    width: 690rpx;
+    margin-bottom: 25rpx;
+    border: 1PX solid #e0e0e0;
+    position: relative;
+    z-index: 1;
+    background: #fff;
+}
+
+.card-item .notch {
+    background: #fbfbfb;
+    width: 30rpx;
+    height: 14rpx;
+    position: absolute;
+    z-index: 999;
+}
+
+.card-item .notch.top-notch {
+    border-bottom-left-radius: 20rpx;
+    border-bottom-right-radius: 20rpx;
+    border: 1px solid #e0e0e0;
+    border-top: 0;
+    left: 171rpx;
+    top: -1rpx;
+}
+
+.card-item .notch.bottom-notch {
+    border-top-left-radius: 20rpx;
+    border-top-right-radius: 20rpx;
+    border: 1px solid #e0e0e0;
+    border-bottom: 0;
+    left: 171rpx;
+    bottom: -1rpx;
+}
+
+.card-content {
+    padding: 30rpx 50rpx 32rpx 50rpx;
+    position: relative;
+}
+
+.card-content .card-type {
+    font-size: 30rpx;
+    line-height: 40rpx;
+    position: absolute;
+    left: 240rpx;
+    max-width: 400rpx;
+    height: 50rpx;
+    padding-right: 35rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    top: 45rpx;
+}
+
+.card-content .card-type:after {
+    content: '';
+    background: url('https://www.eecup.cn/tea/image/eecup/icon/coffeebank/prompt_icon.png') no-repeat;
+    background-size: contain;
+    width: 25rpx;
+    height: 30rpx;
+    margin-left: 12rpx;
+    position: absolute;
+    right: 0;
+    top: 8rpx;
+}
+
+.card-content .card-price {
+    font-size: 48rpx;
+    line-height: 66rpx;
+    width: 100rpx;
+}
+
+.card-content .card-price::first-letter {
+    font-size: 26rpx;
+}
+
+.card-num {
+    font-family: PingFangSC-Medium;
+    font-size: 22rpx;
+    line-height: 32rpx;
+    color: #999;
+    text-indent: 30rpx;
+}
+
+.card-leftBox {
+    width: 120rpx;
+}
+
+.card-time {
+    font-size: 22rpx;
+    position: absolute;
+    line-height: 32rpx;
+    left: 240rpx;
+    max-width: 400rpx;
+    margin-top: 6rpx;
+    padding-right: 35rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    top: 89rpx;
+    color: #999;
+}
+
+.cancelBtnBox {
+    background: #fff;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+    position: fixed;
+    width: 100%;
+    height: 120rpx;
+    bottom: 0rpx;
+    z-index: 99;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cancelBtn {
+    width: 690rpx;
+    height: 80rpx;
+    display: block;
+    margin: auto;
+    background-color: #fff;
+    padding: 0;
+    line-height: 80rpx;
+    outline: none;
+    border: 2rpx solid #f2cba4;
+    color: #f2cba4;
+    font-size: 30rpx;
+    text-align: center;
+    border-radius: 6rpx;
+}
+
+.ipxBtn {
+    height: 160rpx;
+}
+
+.btnBox {
+    width: 690rpx;
+    display: flex;
+    margin-left: 30rpx;
+    justify-content: space-between;
+}
+
+.usBtn {
+    width: 332rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    margin-top: 20rpx;
+    background-color: #fff;
+    padding: 0;
+    color: #f2cba4;
+    text-align: center;
+    border: 2rpx solid #f2cba4;
+    border-radius: 6rpx;
+}
+
+.buleBtn {
+    background: #f2cba4;
+    color: #fff;
+    border: none;
+}

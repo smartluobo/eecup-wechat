@@ -1,0 +1,12 @@
+<import src="../../assets/tpls/navItem/navItem.wxml"></import>
+<view class="member container">
+  <scroll-view>
+
+    <view class="top" >
+    <button class="default" class="share" open-type="share" size="default">
+      
+    </button>
+    </view>
+    
+  </scroll-view>
+</view>

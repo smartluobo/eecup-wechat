@@ -1,0 +1,37 @@
+<view class="wrap">
+    <navigator class="gift_record" url="/pages/giftcard/record?curIndex=2">
+        <text>幸运送记录</text>
+    </navigator>
+    <view class="nav_wrap">
+        <view bind:tap="checkCardType" class="nva_item {{cardType===0?'active':''}}" data-type="0" id="giftCardChange1">
+            <text>最热</text>
+        </view>
+        <view bind:tap="checkCardType" class="nva_item {{cardType===1?'active':''}}" data-type="1" id="giftCardChange2">
+            <text>全部</text>
+        </view>
+    </view>
+    <block wx:if="{{!loadingData}}">
+        <view class="card_body" wx:if="{{list.length}}">
+            <navigator class="card_item" url="/pages/giftcard/pickgiftcard?giftCardId={{item.giftCardId}}" wx:for="{{list}}" wx:key="{{ index }}">
+                <view class="card_img">
+                    <image lazyLoad src="{{item.giftCardImage}}"></image>
+                </view>
+                <view class="card_title">
+          {{item.giftCardName}}
+        </view>
+            </navigator>
+        </view>
+        <view class="not_card" wx:else>
+            <image class="not_card_img" src="https://www.eecup.cn/tea/image/eecup/icon/giftCard/not_giftcard.png"></image>
+            <view class="not_txt">
+        暂无幸运送，敬请期待
+      </view>
+        </view>
+    </block>
+    <view class="card_body" wx:else>
+        <view class="card_item loading" wx:for="{{10}}" wx:key="{{ index }}">
+            <view class="card_img"></view>
+            <view class="card_title"></view>
+        </view>
+    </view>
+</view>

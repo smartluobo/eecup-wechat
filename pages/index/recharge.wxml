@@ -1,0 +1,30 @@
+<view>
+    <view class="tab-left">
+        <view class="{{curHdIndex=='0'? 'active' : 'tab'}}" id="0" data-id="0" bindtap="tab">
+            <text>充值卡充值</text>
+        </view>
+        <view class="{{curHdIndex=='1'? 'active' : 'tab'}}" id="1" data-id="1" bindtap="tab">
+            <text>现金充值</text>
+        </view>
+    </view>
+    <view class="content" wx:if="{{curHdIndex=='0'}}">
+        <view class="search_box">
+            <input placeholder="请输入兑换码" class="input" maxlength="10" value="{{inputValue}}" bindinput="getCode" auto-focus />
+            <button class="search" bindtap="search">查询</button>
+            
+        </view>
+        <view class="couponBox">
+            
+            <view wx:if="{{couponsInfo}}" class="couponPrice">￥{{couponsInfo.amount}}</view>
+           <view wx:if="{{couponsInfo}}" class="couponText">劵码：{{couponsInfo.cardCode}}</view>
+        </view>
+       
+          
+        <button class="get_btn" bindtap="getCoupon">充值</button>
+    </view>
+    
+    <view class="content" wx:if="{{curHdIndex=='1'}}">
+        <view class="await">敬请期待~</view>
+    </view>
+</view>
+<!-- <image class="coupon" src="https://www.eecup.cn/tea/image/eecup/recharge_shopping_card.png"  />-->

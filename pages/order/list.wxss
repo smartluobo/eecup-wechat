@@ -1,0 +1,229 @@
+.orderItem {
+    position: relative;
+}
+
+.list {
+    height: auto;
+    min-height: 100vh;
+}
+
+.topTip {
+    font-family: PingFangSC-Regular;
+    font-size: 26rpx;
+    color: #666;
+    text-align: center;
+    line-height: 36rpx;
+    padding: 0rpx 30rpx 0rpx 30rpx;
+    margin: 20rpx auto;
+}
+
+.listWrap .itemWrap {
+    margin-bottom: 10rpx;
+    background: #fff;
+    font-size: 26rpx;
+    color: #404040;
+    padding-left: 30rpx;
+    
+}
+
+.listWrap .hd {
+    display: flex;
+    justify-content: space-between;
+    line-height: 80rpx;
+    border-bottom: 1rpx solid #f1f1f1;
+    padding-right: 30rpx;
+    
+}
+
+.listWrap .hd .orderId {
+    color: #999;
+}
+
+.listWrap .bd {
+    padding: 28rpx 30rpx 0 0;
+    position: relative;
+}
+.takeCode{
+    position: absolute;
+    right: 30rpx;
+    bottom: 80rpx;
+    font-size: 34rpx;
+}
+
+.listWrap .bd .top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 14rpx;
+    font-size: 30rpx;
+}
+
+.listWrap .bd .shopDesc {
+    flex: 1;
+    text-align: justify;
+    font-weight: bold;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.listWrap .bd .shopName {
+    margin-right: 10rpx;
+}
+
+.listWrap .bd .orderTime {
+    color: #9d9d9d;
+    font-size: 20rpx;
+    width: 200rpx;
+    text-align: right;
+}
+
+.listWrap .bd .goodsDesc {
+    margin-bottom: 35rpx;
+}
+
+.listWrap .bd .goodsName {
+    margin-right: 10rpx;
+}
+
+.listWrap .bd .goodsCount {
+    margin-left: 20rpx;
+}
+
+.listWrap .bd .btm {
+    display: flex;
+    justify-content: space-between;
+    height: 84rpx;
+}
+
+.listWrap .bd .totalAmount {
+    color: #1c1c1c;
+    font-size: 30rpx;
+    line-height: 72rpx;
+    font-weight: bold;
+}
+
+.listWrap .bd .btnWrap {
+    display: flex;
+}
+
+.listWrap .bd button {
+    width: 148rpx;
+    height: 56rpx;
+    line-height: 56rpx;
+    font-size: 26rpx;
+    text-align: center;
+    background: #fff;
+}
+
+.listWrap .orderStatus {
+    color: #999;
+}
+
+.listWrap .red {
+    color: #df6400;
+}
+
+.listWrap .bd .red:after {
+    border-color: #e96957;
+}
+
+.listWrap .gray {
+    color: #666;
+}
+
+.listWrap .bd .gray:after {
+    border-color: #ccc;
+}
+
+.listWrap .blue {
+    color: #f2cba4;
+}
+
+.listWrap .bd .blue:after {
+    border-color: #89afd6;
+}
+
+.listWrap .order {
+    background: url(https://www.eecup.cn/tea/image/eecup/icon/list/list_empty.png) no-repeat center;
+    background-size: 80px 80px;
+    margin-bottom: 0;
+}
+
+.listWrap .emptyTips {
+    margin-bottom: 60rpx;
+    color: #666;
+}
+
+.listWrap .emptyBg {
+    margin: 234rpx auto 14rpx;
+}
+
+.listWrap .emptyBtn {
+    color: #f2cba4;
+    border: 1px solid #f2cba4;
+    border-radius: 6rpx;
+    width: 198rpx;
+    font-size: 26rpx;
+}
+
+.listWrap .emptyBtn::after {
+    border: none;
+}
+
+.coffeeCart {
+    width: 160rpx;
+    height: 220rpx;
+    position: fixed;
+    bottom: 0rpx;
+    right: 180rpx;
+}
+
+fixedHeight {
+    bottom: 100rpx;
+}
+
+.wxCartWarp {
+    position: absolute;
+    width: 316rpx;
+    height: 124rpx;
+    left: 218rpx;
+    top: 456rpx;
+    background: rgba(0,0,0,0.70);
+    z-index: 20;
+    border-radius: 8rpx;
+}
+
+.wxCart {
+    width: 100%;
+    text-align: center;
+}
+
+.icon_wxCart {
+    width: 40rpx;
+    height: 40rpx;
+    padding-top: 20rpx;
+    margin-top: auto auto 8rpx auto;
+}
+
+.wxCartText {
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #fff;
+}
+
+/* .emptyList .emptyBg {
+    margin-top: 165rpx;
+} */
+.empty{
+    background: #f5f5f5;
+    text-align: center;
+    height: 100vh;
+    align-content: center;
+}
+.empty image{
+    width:327rpx;
+    height: 215rpx;
+    padding-top: 350rpx;
+}
+.empty view{
+    color: #666;
+}

@@ -1,0 +1,179 @@
+<view class="deliveryInfo" wx:if="{{isShow == 'pro'}}" >
+  <view class="switch-btn">
+    <view bindtap="switchPickHandler" class="switch-btn-item {{delivery==='pick'?'checked':''}}" id="switch_pick">自提</view>
+    <view bindtap="switchSentHandler" class="switch-btn-item {{delivery==='sent'?'checked':''}}" id="switch_sent">外送</view>
+  </view>
+  <view class="timeInfo">
+    <block wx:if="{{delivery==='pick'}}">
+      <view class="deliveryTip" wx:if="{{isPreset&&!isNow}}">预约取餐</view>
+      <view class="deliveryTip" wx:else>立即取餐</view>
+    </block>
+    <block wx:else>
+      <view bindtap="showSlowTip" class="slowTipIcon" id="slowTipIcon">
+        <image class="slowIcon" src="https://www.eecup.cn/tea/image/eecup/icon/icon_slow.png"></image>
+        <text>慢必赔</text>
+      </view>
+      <view class="deliveryTip slowTip" wx:if="{{isPreset&&!isNow}}">预约配送</view>
+      <view class="deliveryTip slowTip" wx:else>立即配送</view>
+    </block>
+    <view bindtap="changePreset" class="aboutTimeTip" id="changePreset" wx:if="{{order&&order.aboutTime}}">
+      <view class="inPreset" wx:if="{{isPreset&&!isNow}}">
+        <text class="presetTime">{{time}}</text>
+        <view class="timeRightArrow">
+          <image src="https://www.eecup.cn/tea/image/eecup/icon/arrow-right.png"></image>
+        </view>
+      </view>
+      <view class="noPreset" wx:else>
+        约
+        <text class="aboutTime">{{order.aboutTime}}</text> {{delivery==='pick'?'可取':'送达'}}
+        <view class="timeRightArrow" wx:if="{{order.reservation==1}}">
+          <image src="https://www.eecup.cn/tea/image/eecup/icon/arrow-right.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view bindtap="deliveryNavigatorHandler" class="addressInfo" id="deliveryNavigator">
+  <text class="addressType">{{delivery==='pick'?'自提门店':'配送信息'}}</text>
+  <view class="addressLine">
+    <text class="addressLine1 addressLine1_{{delivery}}" wx:if="{{delivery==='pick'}}">{{shopInfo.storeName}} {{shopInfo.number}}</text>
+    <view class="addressLine1 addressLine1_{{delivery}}" wx:else>
+      <view class="addressLine1Detail {{addressInfo.tag?'withTag':''}}">{{addressInfo.addressName}} {{addressInfo.addrDetail}}</view>
+      <view class="addressTag" wx:if="{{addressInfo.tag}}">{{addressInfo.tag}}</view>
+    </view>
+    <view class="addressLine2 addressLine2_{{delivery}}" wx:if="{{delivery==='pick'}}">{{shopInfo.storeAddress}}</view>
+    <view class="addressLine2 addressLine2_{{delivery}}" space="nbsp" wx:else>{{addressInfo.phoneNum}} {{addressInfo.userName}}{{addressInfo.sex}}</view>
+  </view>
+</view>
+<view class="eatwayInfo" wx:if="{{delivery==='pick'&&order.eatway==='both'}}">
+  <view bindtap="chooseEatway" class="eatwayItem" data-way="eat" id="eatway_eat">
+    <view class="checkItem {{eatway==='eat'?'checked':''}}"></view>
+    <text>店内用餐</text>
+  </view>
+  <view bindtap="chooseEatway" class="eatwayItem" data-way="package" id="eatway_package">
+    <view class="checkItem  {{eatway==='package'?'checked':''}}"></view>
+    <text>打包带走</text>
+  </view>
+</view>
+<view class="orderInfo" wx:if="{{order&&order.priceList}}">
+  <view class="orderLabel">订单信息</view>
+  <view class="orderItem" wx:for="{{order.priceList}}" wx:key="orderItem_{{index}}">
+    <view class="itemInfo">
+      <view class="itemName">{{item.title}}</view>
+      <view class="itemDesc itemDesc_{{item.type}}" wx:if="{{item.skuDetailDesc}}">{{item.skuDetailDesc}}</view>
+    </view>
+    <view class="itemAmountPrice">
+      <view class="itemAmount" >x{{item.cartItemCount}}</view>
+      <view class="itemPrice">￥{{item.cartTotalPrice}}</view>
+    </view>
+  </view>
+  <view class="orderItem" wx:if="{{!!order.postFee&&eatway==='package'}}">
+    <view class="itemInfo">
+      <view class="itemName">配送费</view>
+    </view>
+    <view class="itemAmountPrice">
+      <view class="itemPrice">￥{{order.postFee}}</view>
+    </view>
+  </view>
+  <view class="orderDiscount" wx:for="{{order.discountList}}" wx:for-index="discountListIndex" wx:for-item="discountListItem" wx:key="discount_{{discountListIndex}}">
+    <text class="discountName">{{discountListItem.name}}</text>
+    <text class="discountMoney" wx:if="{{discountListItem.totalPrice>0}}">-￥{{discountListItem.totalPrice}}</text>
+  </view>
+</view>
+<view class="orderTotalPrice" wx:if="{{order&&order.priceList}}">
+  <text>合计 </text>
+  <text class="discountPrice">￥{{order.orderTotalAmount}}</text>
+</view>
+<view class="discountInfo">
+  <view class="discountSwitch">
+    <view>使用优惠</view>
+    <view>
+      <switch bindchange="discountSwitchChange" checked="{{useDiscount}}" color="#89AFD6" id="switch_discount"></switch>
+    </view>
+  </view>
+
+  <!-- <view catchtap="chooseCoffeeBank" class="coffeeBankLine" id="chooseCoffeeBank" wx:if="{{useDiscount}}">
+    <view>
+      <text>使用咖啡钱包</text>
+      <text catchtap="buyCafeKu" class="discountTip" id="btn_buyCafeKu" style="background-color:{{order.addCoffeeVoucher.bgColor}}; color: {{order.addCoffeeVoucher.nameColor}}" wx:if="{{order.addCoffeeVoucher&&order.addCoffeeVoucher.show}}">{{order.addCoffeeVoucher.name}}</text>
+    </view>
+
+    
+    <view class="usedDiscount" wx:if="{{order.hasCafeKu&&order.cafeKuDiscount>0}}">-￥{{order.cafeKuDiscount}}</view>
+    <view class="usableCount" wx:elif="{{order.hasCafeKu&&order.cafeKuDiscount===0}}">{{order.coffeeStockCountDesc}}</view>
+    <view class="disabled" wx:elif="{{!order.hasCafeKu}}">无可用</view>
+  </view> -->
+
+
+  <view bindtap="chooseCoupon" class="couponLine" id="btn_chooseCoupon" wx:if="{{useDiscount}}">
+    <view>优惠策略</view>
+    <view class="usedDiscount" wx:if="{{userCoupons&&couponDiscount>0}}">[{{order.couponsName}}] -￥{{couponDiscount}}</view>
+    <view class="disabled" wx:else>{{order.couponsName}}</view>
+  </view>
+</view>
+<view bindtap="tellNavigator" class="tellInfo" wx:if="{{order.phoneNum}}">
+  <view>手机号码</view>
+  <view class="remarkMsg">{{order.phoneNum}}</view>
+  <view style="color: #f2cba4;">更换</view>
+</view>
+<view bindtap="remarkNavigatorHandler" class="remarkInfo" >
+  <view>特殊备注要求</view>
+  <view class="remarkMsg">{{remark}}</view>
+</view>
+<view class="agreementInfo">
+  <view class="payAgree">
+    <view bindtap="checkPayAgree" class="payAgreeCheckbox {{payAgree?'':'unAgree'}}" id="payAgreeBtn"></view>
+    <view class="payAgreeMsg">我已阅读并同意《
+      <navigator url="/pages/agreement/pay">支付协议</navigator>》
+    </view>
+  </view>
+  <view class="invoiceTip">
+    温馨提示：仅支持开具电子发票，订单完成后可前往发票管理中开具
+  </view>
+</view>
+<view class="{{order.showCouponFlag===1?'confirmFooter withTips':'confirmFooter'}} {{isIpx?'fix-iphonex-bottom':''}}">
+  <view class="confirmTips" wx:if="{{order.showCouponFlag===1}}">点击【去支付】，如有优惠券自动减免</view>
+  <view class="confirmOrderPayInfo">
+    <view class="priceContent">
+      <view>
+        <text class="cartTotalLabel">还需支付</text>
+        <text class="cartTotalPriceUnit">￥</text>
+        <text wx:if="{{useDiscount}}" class="cartTotalPrice">{{order.discountPrice}}</text>
+          <text wx:else class="cartTotalPrice">{{order.orderTotalAmount}}</text>
+      </view>
+    </view>
+    <form bindsubmit="checkout" id="checkout" reportSubmit="true">
+      <button class="cartCheckout {{payAgree?'':'disabledCheckout'}}" formType="submit">去支付</button>
+    </form>
+  </view>
+</view>
+<view wx:if="{{hideFMCanvas!=undefined&&!hideFMCanvas}}">
+  <canvas canvasId="tdcanvas" style="margin-top:200rpx"></canvas>
+</view>
+<view catchtap="cancelPreset" class="timeDialogWrap" id="timeDialogWrapCancelPreset" wx:if="{{presetDialog}}"></view>
+<view class="timeDialog" wx:if="{{presetDialog}}">
+  <view class="timeConfirm">
+    <view bindtap="cancelPreset" class="timeCancelBtn" id="cancelPreset">取消</view>
+    <view class="timeTitle">选择预约时间</view>
+    <view bindtap="doPreset" class="timeSubmit" id="doPreset">确定</view>
+  </view>
+  <picker-view bindchange="bindChange" bindpickstart="startAnimation" id="bindChange" indicatorStyle="height: 37px;" style="width: 100%; height: 346rpx;" value="{{timeIndex}}">
+    <picker-view-column>
+      <view class="timeItme" wx:for="{{times}}" wx:key="{{index}}">{{item}}</view>
+    </picker-view-column>
+  </picker-view>
+</view>
+<!--手机号码弹出框
+<view class="coupon" wx:if="{{tellDialog}}"></view>
+<form bindsubmit="changeTell" class="tellBox" reportSubmit="true" wx:if="{{tellDialog}}">
+        <view class="tellBox">
+            <view class="item" wx:if="{{addrId == null}}" >
+              <input bindblur="telBlurHandler" bindfocus="telFocusHandler" bindinput="telInputHandler" class="input" placeholder="请输入您的手机号" placeholderClass="inputPlaceholder" type="number" value="{{tel}}"></input>
+            </view>
+              <input bindblur="msgCodeBlurHandler" style='width:40%;' bindfocus="" bindinput="msgCodeInputHandler" class="input" placeholder="请输入验证码" placeholderClass="inputPlaceholder" type="number" value="{{msgCode}}"></input>
+              <button class='codeBtn' bindtap='getVerificationCode' disabled='{{disabled}}' >{{codename}}</button>
+              <label bindtap="msgCodeClearHandler" class="clear1" wx:if="{{showMsgCodeClear}}"></label>
+            <view class="closeBtn" bindtap="comfirm">保存</view>
+        </view>
+</form>
+-->

@@ -1,0 +1,72 @@
+<import src="../../assets/tpls/navItem/navItem.wxml"></import>
+<view class="member container">
+  <scroll-view>
+
+
+    <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class="top flex-row arrowsLeft" id="userAreaTap">
+      <view class="avatar avatarWrap">
+        <image mode="aspectFill" src="{{userAvatar}}" wx:if="{{userAvatar}}"></image>
+      </view>
+      <view class="text">
+        <text>{{userName}}</text>
+      </view>
+    </button>
+  <!-- -->
+     <navigator class="binding" wx:if="{{!userDetails.userBindPhoneNum}}"  url="/pages/address/binding">
+        找不到订单或优惠券？绑定一下手机号试试~
+        <text class="gobind">去绑定</text>
+    </navigator>
+
+    <!-- <view class="navList">
+      <template is="navItem" data="{{item:item}}" wx:for="{{navListFirst}}" wx:key="index"></template>
+    </view> -->
+
+    <view class="navList">
+
+
+      <navigator wx:if="{{isShow == 'pro'}}" url="/pages/member/addresslist" class="navItem showBefore showAfter arrowsLeft getAddress" data-id="getAddress" id="getAddress">
+        <text data-id="getAddress">收货地址</text>
+      </navigator>
+
+
+
+      <!-- <view class="navItem showBefore showAfter arrowsLeft wallet" data-id="wallet" id="wallet">
+        <text data-id="wallet">咖啡钱包</text>
+        <view class="extra" data-id="wallet">
+        </view>
+      </view> -->
+      <view bindtap="coupon" class="navItem showBefore showAfter arrowsLeft coupon" data-id="coupon" id="coupon">
+        <text data-id="coupon">优惠券</text>
+        <view class="extra" data-id="coupon">
+        </view>
+      </view>
+      <!-- <view class="navItem showBefore showAfter arrowsLeft receipt" data-id="receipt" id="receipt">
+        <text data-id="receipt">发票管理</text>
+      </view> -->
+
+      <view class="navItem showBefore showAfter arrowsLeft share" bindtap="share">
+       <view class="a">
+        <text data-id="customerService">分享给好友</text>
+       </view>
+      </view>
+
+ <button class="share-img-button"  open-type="contact" >
+      <view class="navItem showBefore showAfter arrowsLeft customerService" data-id="customerService" id="customerService">
+       <navigator url="url" class="a">
+        <text data-id="customerService">客户服务</text>
+       </navigator>
+      </view>
+ </button>
+
+
+
+
+    </view>
+
+
+
+    <!-- <view class="advertLink" data-id="advertLink">
+      <image bindtap="invitationPeople" id="btn_invitationPeople" mode="widthFix" src="{{advertImage}}" wx:if="{{advertImage}}"></image>
+    </view> -->
+  </scroll-view>
+</view>

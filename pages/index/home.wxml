@@ -1,0 +1,173 @@
+<!-- wx:if="{{!!loadingSucceed}}"-->
+<view class="home" >
+
+  <scroll-view>
+
+    <!-- style="height:233px"<view class="banner-box" style="height:{{imgSize?imgSize:'604rpx'}}" wx:if="{{null!==adPics&&adPics.length>0}}"> -->
+    <view class="banner-box" >
+      <swiper autoplay="{{autoplay}}" bindchange="bannerChange" circular="true" class="banner-swiper-box" duration="{{duration}}" id="homeTopBanner" indicatorActiveColor="#fff" indicatorColor="rgba(255, 255, 255, 0.5)" indicatorDots="{{indicatorDots}}" interval="{{interval}}">
+
+        <swiper-item wx:for="{{adPics}}" wx:key="{{ item.index }}">
+
+          <image bindtap="goImgLink" class="banner-image" data-clickurl="{{item.gotoUrl}}" id="btn_toImgLink" src="{{item.imageUrl}}" mode='widthFix' ></image>
+
+        </swiper-item>
+      </swiper>
+    </view>
+    <view class="nav_box">
+      <view class="nav_list" bindtap="getActivityInfo">
+        <view><image src="https://www.eecup.cn/tea/image/eecup/today_activity_poster.png"/></view>
+        <text>今日活动</text>
+      </view>
+      <view class="nav_list"  bindtap="goCouponList">
+        <view><image src="https://www.eecup.cn/tea/image/eecup/index_coupons_poster.png"/></view>
+        <text>优惠劵</text>
+      </view>
+      <view class="nav_list" bindtap="recharge">
+        <view><image src="https://www.eecup.cn/tea/image/eecup/index_recharge.png"/></view>
+        <text>充值中心</text>
+      </view>
+      
+      <view class="nav_list" bindtap="tea">
+        <view><image src="https://www.eecup.cn/tea/image/eecup/teach_you_drink_tea.png"/></view>
+        <text>教你喝茶</text>
+      </view>
+      <view class="nav_list" bindtap="store">
+        <view><image src="https://www.eecup.cn/tea/image/eecup/integral_mall.png"/></view>
+        <text>积分商城</text>
+      </view>
+    </view>
+    <view class="content_banner">
+      <view class="content_banner_left" bindtap="new">
+        <image src="https://www.eecup.cn/tea/image/eecup/index_new_user_gift.png"></image>
+      </view>
+      <view class="content_banner_right" bindtap="share">
+        <image src="https://www.eecup.cn/tea/image/eecup/index_share_poster.png"></image>
+      </view>
+    </view>
+   
+    <view class="goodsBox">
+     <view class="goodsBoxTitle"></view>
+        <view  bindtap='kind' wx:for="{{recommendList}}" wx:key="{{index}}" class="goodsList" hover-class="none" url="./menu" data-goods="{{item}}" role="navigation">
+              <view class="goods">
+                <view class="goodsImgBox">
+                  <image class="goodsImg" src="{{ item.posterImage }}" role="img">
+                           <view class="sell-out-box" wx:if="{{item.num==0}}">
+                            <text class="sell-out-msg">售罄</text>
+                          </view>
+                  </image>
+                </view>
+                <view class="goodsText">
+                  <view class="goodsSubTitle">{{ item.title }}</view>
+                  <view class="goodsActiTitle">{{ item.sellPoint }}</view>
+                  <view class="cplbright4 flex-bet">
+                      <view class="cplbright4-l flex-grow-1">
+                        <text wx:if="{{item.activityPrice!=0}}" >￥{{item.activityPrice }}</text>
+                        <text wx:else >￥{{item.price }}</text>
+                        <text wx:if="{{item.activityPrice!=0}}" >￥{{item.price }}</text>
+                      </view>
+                  </view>
+
+                </view>
+
+                
+              </view>   
+            </view>
+    </view>
+  </scroll-view>
+
+
+  <view class="coupon" wx:if="{{millionDialog}}"></view>
+  <form bindsubmit="navigateToActivityInfo" class="envelopeBox" reportSubmit="true" wx:if="{{millionDialog}}">
+        <view class="envelope" style="background-image:url({{activityInfo.info.showImageUrl}});}}">
+          <view class="submitBtnBox">
+            <button class="submitBtn" formType="submit"></button>
+          </view>
+          <view bindtap="closeMillion" class="closeBtn" id="closeMillion"></view>
+        </view>
+    </form>
+
+    <form bindsubmit="navigateToMenu" class="envelopeBox" reportSubmit="true" wx:if="{{chouDialog}}">
+        <view class="envelope" style="background-image:url({{couponsPoster}});}}">
+        <view class="submitBtnBox">
+          <button class="submitBtn" formType="submit"></button>
+        </view>
+           
+            <view bindtap="closeMillion"  class="closeBtn"></view>
+        </view>
+    </form>
+    
+    <form bindsubmit="goExtractCoupon" class="envelopeBox" reportSubmit="true" wx:if="{{extractResultDialog}}">
+        <view class="envelope" style="background-image:url({{couponsPoster}});}}">
+        <view class="submitBtnBox">
+          <button class="submitBtn" formType="submit"></button>
+        </view>
+           
+            <view  bindtap="closeMillion"  class="closeBtn"></view>
+        </view>
+    </form>
+    <form  class="envelopeBox" reportSubmit="true" wx:if="{{chouResultDialog}}">
+        <view class="envelope" style="background-image:url({{couponsPoster}});}}">
+      <!--  <view class="submitBtnBox">
+          <button class="submitBtn" formType="submit"></button>
+        </view>
+        -->
+            <view bindtap="closeMillion"  class="closeBtn"></view>
+        </view>
+    </form>
+    <form  class="envelopeBox" reportSubmit="true" wx:if="{{noActivityDialog}}">
+    
+        <view class="envelope" style="background-image:url('https://www.eecup.cn/tea/image/eecup/noActivity.png');}}">
+      <!--  <view class="submitBtnBox">
+          <button class="submitBtn" formType="submit"></button>
+        </view>
+        -->
+            <view bindtap="closeMillion"  class="closeBtn"></view>
+        </view>
+    </form>
+
+
+
+
+
+
+
+ <!-- <view class="awakenCoupon" wx:if="{{isAwakenCoupon1}}">
+    <form bindsubmit="goCoupon" id="awakenCoupon" reportSubmit="true">
+      <view class="couponForm" style="background-image: url('{{couponBackground}}')">
+        <view class="couponItem couponOne" wx:if="{{awakenCouponList.length>0&&awakenCouponList.length<2}}">
+          <view class="couponNum">
+            <text class="numSize">{{awakenCouponList[0].denomination}}</text>
+            <text>{{awakenCouponList[0].unit}}</text>
+          </view>
+          <view class="couponName">{{awakenCouponList[0].couponName}}</view>
+        </view>
+        <block wx:if="{{awakenCouponList.length>1&&awakenCouponList.length<3}}">
+          <view class="couponItem couponTwo1">
+            <view class="couponNum">
+              <text class="numSize">{{awakenCouponList[0].denomination}}</text>
+              <text>{{awakenCouponList[0].unit}}</text>
+            </view>
+            <view class="couponName">{{awakenCouponList[0].couponName}}</view>
+          </view>
+          <view class="couponItem couponTwo2">
+            <view class="couponNum">
+              <text class="numSize">{{awakenCouponList[1].denomination}}</text>
+              <text>{{awakenCouponList[1].unit}}</text>
+            </view>
+            <view class="couponName">{{awakenCouponList[1].couponName}}</view>
+          </view>
+        </block>
+        <view class="submitBtnBox">
+          <button class="submitBtn" formType="submit"></button>
+        </view>
+        <view bindtap="closeOpen" class="closeBtn" id="closeMillionBtn"></view>
+      </view>
+    </form>
+  </view>-->
+</view>
+<!--
+<view wx:if="{{!loadingSucceed}}" class="home">
+  <image src="https://www.eecup.cn/tea/image/eecup/app_loading.gif"/>
+</view>
+-->

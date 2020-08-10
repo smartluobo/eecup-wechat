@@ -1,0 +1,98 @@
+<view class="createInvoice">
+    <view class="listItem">
+        <view class="leftName">发票类型</view>
+        <view class="rightValue">电子发票</view>
+    </view>
+    <view class="listItem">
+        <view class="leftName">发票金额</view>
+        <view class="rightValue">￥{{count}}</view>
+    </view>
+    <view class="listItem">
+        <view class="leftName">开票方式</view>
+        <view class="rightValue checkBox">
+            <view bindtap="billTypeHander" class="leftCheck" data-type="2" id="leftBillTypeHander">
+                <image class="icon_check" src="https://www.eecup.cn/tea/image/eecup/icon/invoice/icon_check.png" wx:if="{{billType!=='1'}}"></image>
+                <image class="icon_noCheck" src="https://www.eecup.cn/tea/image/eecup/icon/invoice/icon_noCheck.png" wx:else></image>
+                <text class="checkText">商品类别</text>
+            </view>
+            <view bindtap="billTypeHander" class="rightCheck" data-type="1" id="rightBillTypeHander">
+                <image class="icon_check" src="https://www.eecup.cn/tea/image/eecup/icon/invoice/icon_check.png" wx:if="{{billType==='1'}}"></image>
+                <image class="icon_noCheck" src="https://www.eecup.cn/tea/image/eecup/icon/invoice/icon_noCheck.png" wx:else></image>
+                <text class="checkText">商品明细</text>
+            </view>
+        </view>
+    </view>
+    <view class="listItem">
+        <view class="leftName">发票抬头</view>
+        <view class="rightValue checkBox">
+            <view bindtap="titleTypeHander" class="leftCheck" data-type="1" id="leftTitleTypeHander">
+                <image class="icon_check" src="https://www.eecup.cn/tea/image/eecup/icon/invoice/icon_check.png" wx:if="{{titleType==='1'}}"></image>
+                <image class="icon_noCheck" src="https://www.eecup.cn/tea/image/eecup/icon/invoice/icon_noCheck.png" wx:else></image>
+                <text class="checkText">个人</text>
+            </view>
+            <view bindtap="titleTypeHander" class="rightCheck" data-type="2" id="rightTitleTypeHander">
+                <image class="icon_check" src="https://www.eecup.cn/tea/image/eecup/icon/invoice/icon_check.png" wx:if="{{titleType!=='1'}}"></image>
+                <image class="icon_noCheck" src="https://www.eecup.cn/tea/image/eecup/icon/invoice/icon_noCheck.png" wx:else></image>
+                <text class="checkText">单位</text>
+            </view>
+        </view>
+    </view>
+    <view class="listItem" wx:if="{{titleType==='2'}}">
+        <view class="leftName">公司抬头</view>
+        <view class="rightValue">
+            <input bindinput="titleNameInput" placeholder="请输入公司名称（必填）" placeholderStyle="color:#BFBFBF;" value="{{titleName}}"></input>
+            <view bindtap="goHead" class="arrowBox" id="arrowBoxGoHead">
+                <view class="hasArrow" id="hasArrowGoHead"></view>
+            </view>
+        </view>
+    </view>
+    <view class="listItem" wx:if="{{titleType==='2'}}">
+        <view class="leftName identityNo">纳税人识别号</view>
+        <view class="rightValue">
+            <input bindinput="identityNoInput" placeholder="请输入纳税人识别号（选填）" placeholderStyle="color:#BFBFBF;" value="{{identityNo}}"></input>
+        </view>
+    </view>
+    <view class="listItem" wx:if="{{titleType==='2'&&moreInfo}}">
+        <view class="leftName identityNo">注册地址</view>
+        <view class="rightValue">
+            <input bindinput="registerAddrInput" placeholder="（选填）" placeholderStyle="color:#BFBFBF;" value="{{registerAddr}}"></input>
+        </view>
+    </view>
+    <view class="listItem" wx:if="{{titleType==='2'&&moreInfo}}">
+        <view class="leftName identityNo">注册电话</view>
+        <view class="rightValue">
+            <input bindinput="registerTelInput" placeholder="（选填）" placeholderStyle="color:#BFBFBF;" type="number" value="{{registerTel}}"></input>
+        </view>
+    </view>
+    <view class="listItem" wx:if="{{titleType==='2'&&moreInfo}}">
+        <view class="leftName identityNo">开户银行</view>
+        <view class="rightValue">
+            <input bindinput="depositBankInput" placeholder="（选填）" placeholderStyle="color:#BFBFBF;" value="{{depositBank}}"></input>
+        </view>
+    </view>
+    <view class="listItem" wx:if="{{titleType==='2'&&moreInfo}}">
+        <view class="leftName identityNo">银行账号</view>
+        <view class="rightValue">
+            <input bindinput="bankNoInput" placeholder="（选填）" placeholderStyle="color:#BFBFBF;" type="number" value="{{bankNo}}"></input>
+        </view>
+    </view>
+    <view class="listItem" wx:if="{{titleType==='2'}}">
+        <view class="leftName identityNo">其他发票信息</view>
+        <view bindtap="moreInfoHander" class="rightValue" id="moreInfoHander">
+            <view class="hasArrow {{moreInfo?'upArrow':'downArrow'}}"></view>
+        </view>
+    </view>
+    <view class="listItem emailItem">
+        <view class="leftName">邮箱地址</view>
+        <view class="rightValue">
+            <input focus bindinput="emailInput" placeholder="（必填）" placeholderStyle="color:#BFBFBF;" value="{{email}}"></input>
+        </view>
+    </view>
+    <view class="invoiceTip">
+        <view>温馨提示：</view>
+        <view>应国家税务总局要求，您若开具增值税普通发票，须同时提供企业抬头及纳税人识别号，否则发票将无法用于企业报销。</view>
+    </view>
+    <cover-view class="invoiceFoot" style="height:{{isIpx?'170rpx':'116rpx'}}">
+        <cover-view bindtap="submitHander" class="submitBtn canSubmit" id="submitHander">提交申请</cover-view>
+    </cover-view>
+</view>

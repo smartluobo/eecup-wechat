@@ -1,0 +1,1 @@
+<web-view bindmessage="getMessage" src="{{redirectUrl}}"></web-view>

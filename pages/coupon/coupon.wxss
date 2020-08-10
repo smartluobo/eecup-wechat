@@ -1,0 +1,143 @@
+
+
+
+
+
+
+
+.coupon_box {
+    padding-top: 10rpx;
+    background: #f5f5f5;
+    padding-bottom: 10rpx;
+}
+
+
+
+.coupon_list0 {
+    width: 679rpx;
+    height: 188rpx;
+    margin: 30rpx auto;
+    position: relative;
+    color: #fff;
+    background: url('https://www.eecup.cn/tea/image/eecup/coupons_background_new.png') no-repeat center;
+    background-size: 100% 188rpx;
+    overflow: hidden;
+}
+.coupon_list1 {
+    width: 679rpx;
+    height: 188rpx;
+    margin: 30rpx auto;
+    position: relative;
+    color: #fff;
+    background: url('https://www.eecup.cn/tea/image/eecup/coupons_background_store.png') no-repeat center;
+    background-size: 100% 188rpx;
+    overflow: hidden;
+}
+.expire{
+    width: 50rpx;
+    height: 50rpx;
+    margin: 30rpx auto;
+    position: absolute;
+    right: 65rpx;
+    top: 30rpx;    
+}
+.expire image{
+    width: 120rpx;
+    height: 120rpx;
+    margin: 30rpx auto;
+    position: absolute;
+    color: #fff;
+}
+.ndb_price {
+    width: 33.80281690140845%;
+    height: 124rpx;
+    display: inline-block;
+    box-sizing: border-box;
+    float: left;
+    padding: 20rpx 0 0 0;
+}
+
+.ndb_price_top,.ndb_price_top1 {
+    display: block;
+    width: 100%;
+    /* color: #333; */
+    text-align: center;
+    height: 104rpx;
+    line-height: 104rpx;
+    overflow: hidden;
+}
+
+.ndb_price_top text:first-child {
+    font-size: 65rpx;
+}
+
+.ndb_price_top text:last-child {
+    font-size: 28rpx;
+}
+.ndb_price_top1 text:first-child{
+    font-size: 28rpx;
+}
+.ndb_price_top1 text:last-child{
+    font-size: 65rpx;
+}
+.ndb_price_bottom {
+    display: block;
+    width: 100%;
+    text-align: center;
+    height: 24rpx;
+    line-height: 24rpx;
+    font-size: 24rpx;
+    overflow: hidden;
+}
+
+.ndb_detail {
+    width: 66.19718309859155%;
+    display: inline-block;
+    box-sizing: border-box;
+    position: relative;
+    
+}
+
+.ndb_detail_left {
+    display: block;
+    width: 100%;
+    /* height: 50rpx; */
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-left: 20rpx;
+    line-height: 50rpx;
+    padding-top: 15rpx;
+}
+.ndb_detail_left_title {
+    
+    font-size: 32rpx;
+    color: #333;
+}
+
+.ndb_detail_right {
+    display: block;
+    font-size: 26rpx;
+    color: #666;
+    line-height: 50rpx;
+    box-sizing: border-box;
+    padding-left: 20rpx;
+    padding-top: 10rpx;
+    overflow: hidden;
+}
+
+
+
+.ndb_time {
+    width: 100%;
+    height: 60rpx;
+    display: block;
+    vertical-align: top;
+    box-sizing: border-box;
+    font-size: 26rpx;
+    color: #666;
+    line-height: 46rpx;
+    padding-top: 15rpx;
+    padding-left: 20rpx;
+}
+
+

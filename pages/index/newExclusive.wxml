@@ -1,0 +1,10 @@
+<import src="../../assets/tpls/navItem/navItem.wxml"></import>
+<view class="member container">
+  <scroll-view>
+
+    <view class="top" >
+    <view class="share" bindtap="getCoupon"></view>
+    </view>
+    
+  </scroll-view>
+</view>

@@ -1,0 +1,110 @@
+
+<template name="cardItemPartB">
+    <view class="itemWrapB">
+        <view class="itemContent">
+            <view class="itemContent-top">
+                <view class="top-left">
+                    <view class="cardName">
+            {{item.name}}
+          </view>
+                    <view class="limitTime">
+            {{item.validDate}}
+          </view>
+                </view>
+                <view class="top-right">
+                    <text class="discount">
+                        <text class="money" wx:if="{{item.type==='face'?true:false}}">¥</text>{{item.value}}{{item.num1}}
+          <text wx:if="{{item.type==='discount'?true:false}}">折</text>
+                    </text>
+                </view>
+            </view>
+            <view class="itemContent-bottom">
+                <view class="btnBar">
+                    <view bindtap="toggle" class="ruleBtn" data-close="{{item.display}}" data-ignore="ignore" data-index="{{index}}" id="btn_toggle">
+                        <text>使用规则</text>
+                        <text class="arrow {{item.display?'':'rotate'}}" data-ignore="ignore"></text>
+                    </view>
+                    <view class="nowUse">
+                        <view bindtap="useNowHandle" class="nowUse-btn" data-index="{{index}}" id="useNow">
+              立即使用
+            </view>
+                    </view>
+                </view>
+                <view class="ruleInfo" style="{{item.display?'display: none':''}}">
+                    <view class="ruleInfoText">{{item.detailDescList[0]}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+
+
+
+<template name="cardItem">
+    <view class="itemWrap">
+        <view class="itemBorder">
+            <view class="itemBorder1">
+                <view bindtap="radioIsChecked" class="content" data-index="{{index}}" data-radio="{{item.radio}}" id="btn_radioIsChecked">
+                    <view class="contentLeft">
+                        <view class="leftWrap">
+                            <view class="leftNum">
+                                <!-- <text class="money" wx:if="{{item.type==='face'?true:false}}">¥</text> -->
+                                <text class="num" wx:if="{{item.couponsType!='4'?true:false}}" >{{item.bigNum}}.</text>
+                                <text class="discount" wx:if="{{item.couponsType!='4'?true:false}}">
+                                    <text>{{item.smallNum}}</text>折</text>
+                            </view>
+                            <text class="leftText wordEllipsis" wx:if="{{item.couponsType=='4'?true:false}}" >{{item.couponsName}}</text>
+                        </view>
+                    </view>
+                    <view class="contentRight">
+                        <view class="rightText">
+                            <view class="title wordEllipsis">{{item.useScope}}</view>
+                            <view class="time wordEllipsis">优惠券数量: {{item.couponsCount}}张</view>
+                        </view>
+                        <view class="radioWrap">
+                            <view class="radio {{item.radio?'checked':''}}" data-index="{{index}}" data-radio="{{item.radio}}" id="{{item.code}}" wx:if="{{radioDisplay}}"></view>
+                        </view>
+                        <view bindtap="toggle" class="ruleUse" data-close="{{item.display}}" data-ignore="ignore" data-index="{{index}}" id="btn_toggle">
+                            <text class="ruleText" data-ignore="ignore">使用规则</text>
+                            <text class="arrow {{item.display?'':'rotate'}}" data-ignore="ignore"></text>
+                        </view>
+                    </view>
+                </view>
+                <view class="info" style="{{item.display?'display: none':''}}">
+                    <view class="infoText">{{item.useRules}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+
+
+
+
+<import src="../../assets/tpls/emptyList/emptyList.wxml"></import>
+<view class="coupon">
+   <!-- <view class="couponAvailable" wx:if="{{couponAvailable}}">可用优惠
+    <text>（{{couponNum}}张）</text>
+    </view>
+    <view class="couponAvailableBlock" wx:if="{{couponAvailable}}"></view>
+    -->
+
+    <scroll-view class="couponWrap" style="{{bannerFlag?'padding-bottom:140rpx':''}}">
+        <block wx:if="{{comeFrom==='list'&&ABtest===1}}">
+            <template is="cardItemPartB" data="{{item:item,index:index,radioDisplay:radioDisplay}}" wx:for="{{couponList}}" wx:key="index"></template>
+        </block>
+        <block wx:else>
+            <template is="cardItem" data="{{item:item,index:index,radioDisplay:radioDisplay}}" wx:for="{{couponList}}" wx:key="index"></template>
+        </block>
+        <template is="emptyList" data="{{emptyData:emptyData}}" wx:if="{{emptyData}}"></template>
+    </scroll-view>
+
+
+    <view class="saveWrapBlock" wx:if="{{couponAvailable}}"></view>
+    <!-- <view class="saveWrap {{isIpx?'fix-iphonex-bottom':''}}" wx:if="{{couponAvailable}}">
+        <view bindtap="saveData" class="save" id="save">保存</view>
+    </view> -->
+</view>
+<view class="botoomBanner" wx:if="{{bannerFlag}}">
+    <image class="bannerImg" id="couponBottomBannerImage" src="{{inviterImg}}"></image>
+</view>

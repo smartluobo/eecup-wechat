@@ -1,0 +1,51 @@
+<view class="giftRecord">
+    <view class="giftNav">
+        <view bindtap="checkNav" class="navItem {{curIndex==2?'checkedNav':''}}" data-index="2" id="checkNav1">
+      赠送中({{giftInfo.giftCardTransferringCount}}张)
+      <view class="sendingTip">好友未领</view>
+        </view>
+        <view bindtap="checkNav" class="navItem {{curIndex==0?'checkedNav':''}}" data-index="0" id="checkNav2">
+      已赠送({{giftInfo.giftCardTransferredCount}}张)
+    </view>
+        <view bindtap="checkNav" class="navItem {{curIndex==1?'checkedNav':''}}" data-index="1" id="checkNav3">
+      已收到({{giftInfo.giftCardReceivedCount}}张)
+    </view>
+    </view>
+    <view class="giftWarp">
+        <block wx:if="{{loadingFlag}}">
+            <block wx:if="{{giftList.length>0}}">
+                <view class="giftItem" wx:for="{{giftList}}" wx:key="{{index}}">
+                    <view class="giftBox">
+                        <view bindtap="toDetail" class="imgBox" data-gift="{{item}}" id="toDetail1">
+                            <image class="giftImg" src="{{item.giftCardImage?item.giftCardImage:'https://www.eecup.cn/tea/image/eecup/icon/giftCard/giftcard_default.png'}}"></image>
+                            <view class="imgTip">共{{item.totalNum}}杯</view>
+                        </view>
+                        <view bindtap="toDetail" class="wordBox" data-gift="{{item}}" id="toDetail2">
+                            <view class="giftTime">{{item.time}}</view>
+                            <view class="giftWish">{{item.wishContent}}</view>
+                        </view>
+                        <view class="line"></view>
+                        <view class="bottomBox">
+                            <view bindtap="cancelSend" class="cancelBtn" data-index="{{index}}" id="cancelSend" wx:if="{{curIndex==2}}">
+                  取消转赠
+                </view>
+                            <view class="friend" wx:elif="{{curIndex==0}}">
+                  赠给好友：<view class="friendSize">{{item.name?item.name:'咖啡'}}</view>
+                            </view>
+                            <view class="friend" wx:else>来自好友：<view class="friendSize">{{item.name?item.name:'咖啡'}}</view>
+                            </view>
+                            <view bindtap="toDetail" class="deatilBtn" data-gift="{{item}}" id="toDetail3">
+                  查看详情
+                  <image class="arrowsLeft" src="https://www.eecup.cn/tea/image/eecup/icon/center/arrowsLeft.png"></image>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <view class="not_card" wx:else>
+                <image class="not_card_img" src="https://www.eecup.cn/tea/image/eecup/icon/giftCard/not_giftcard.png"></image>
+                <view class="not_txt">暂无幸运送记录</view>
+            </view>
+        </block>
+    </view>
+</view>

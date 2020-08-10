@@ -1,0 +1,19 @@
+<view class="beautifulpic">
+    <swiper autoplay="{{autoplay}}" bindchange="changeHander" class="swiper" current="{{current}}" duration="{{duration}}" id="change" indicatorDots="{{indicatorDots}}" interval="{{interval}}" style="height:{{swiperHeight}}px">
+        <swiper-item class="swiperItem" wx:for="{{imgUrls}}" wx:key="{{index}}">
+            <canvas canvasId="canvas-{{index}}" class="canvas slide-image"></canvas>
+        </swiper-item>
+    </swiper>
+    <cover-view class="footerDot" wx:if="{{footerFlag}}">
+        <cover-view wx:for="{{imgUrls}}" wx:key="{{index}}">
+            <cover-view class="dot {{index===current?'activityDot':''}}"></cover-view>
+        </cover-view>
+    </cover-view>
+    <cover-view class="picFooter" wx:if="{{footerFlag}}">
+        <cover-view bindtap="savePic" class="iconGroup" id="savePic">
+            <cover-image class="icon_save" src="https://www.eecup.cn/tea/image/eecup/icon/index/pic_save.png"></cover-image>
+            <cover-view class="saveText">保存</cover-view>
+        </cover-view>
+        <cover-view bindtap="cancelHander" class="cancelBtn" id="cancel">取消</cover-view>
+    </cover-view>
+</view>

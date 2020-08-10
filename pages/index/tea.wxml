@@ -1,0 +1,10 @@
+<view class="member container">
+  <scroll-view>
+
+    <view class="top" >
+
+      
+    </view>
+    
+  </scroll-view>
+</view>

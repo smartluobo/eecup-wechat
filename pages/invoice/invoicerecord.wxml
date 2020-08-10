@@ -1,0 +1,24 @@
+<view class="invoiceRecord">
+    <block wx:if="{{list.length>0}}">
+        <view class="manageContent" wx:for="{{list}}" wx:key="{{index}}">
+            <view bindtap="goDetail" class="manageList {{item.lastIndex?'noBorder':''}}" data-receiptId="{{item.receiptId}}" id="goDetail">
+                <view class="letfName">
+                    <view>发票金额：</view>
+                    <view>发票类型：</view>
+                    <view>发票抬头：</view>
+                    <view>申请时间：</view>
+                </view>
+                <view class="rightValue">
+                    <view>￥{{item.receiptAmount}}</view>
+                    <view>{{item.receiptType}}</view>
+                    <view>{{item.titleType}}</view>
+                    <view>{{item.applyTime}}</view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <view wx:else>
+        <image class="icon_no" src="https://www.eecup.cn/tea/image/eecup/icon/nothing.png"></image>
+        <view class="noText">暂无开票记录</view>
+    </view>
+</view>

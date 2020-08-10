@@ -1,0 +1,118 @@
+.input{
+    width: 400rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    border-bottom: 1px solid #e6e6e6;
+    margin: 0 auto;
+    float: left;
+}
+button {
+    position: static;
+}
+.content{
+    margin-top: 102rpx;
+    text-align: center;
+}
+.search_box{
+    overflow: hidden;
+    padding: 0 60rpx;
+}
+.search{
+    float: right;
+    width: 200rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    /* background: #f2cba4; */
+    color: #f2cba4;
+    border: 1rpx solid #f2cba4;
+    background: #fff;
+}
+.tab-left {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background: #fff;
+}
+.get_btn{
+    margin-top: 100rpx;
+    width: 700rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    background: #f2cba4;
+    color: #333;
+    position: fixed;
+    bottom: 25rpx;
+    left:25rpx;
+    right:25rpx;
+}
+
+.item {
+    height: 102rpx;
+    width: 710rpx;
+    line-height: 102rpx;
+    font-size: 30rpx;
+    color: #333;
+    padding-left: 40rpx;
+    position: relative;
+    border-bottom: 1rpx solid #e6e6e6;
+}
+
+.tab {
+    float: left;
+    width: 375rpx;
+    text-align: center;
+    font-size: 28rpx;
+    color: #666;
+    height: 88rpx;
+    line-height: 88rpx;
+}
+
+
+.active {
+    float: left;
+    width: 375rpx;
+    text-align: center;
+    font-size: 28rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    color: #0a88fa;
+}
+.await{
+    width: 100%;
+    height: 80vh;
+    line-height: 80vh;
+}
+.coupon{
+    /* margin-top: 20rpx; */
+    width: 100%;
+    height: 350rpx;
+    object-fit: cover;
+}
+.couponBox{
+    margin: 0 auto;
+    width: 640rpx;
+    height: 300rpx;
+    background:url('https://www.eecup.cn/tea/image/eecup/shopping_card_background.png?v=3') no-repeat center;
+    background-size: 670rpx 300rpx;
+    margin-top: 30rpx;
+    
+    padding-left: 30rpx;
+    color: #fff;
+}
+.couponText{
+    font-size: 40rpx;
+    padding-top: 140rpx;
+    padding-right: 30rpx;
+    text-align: right;
+}
+.couponPrice{
+    font-size: 60rpx;
+    font-weight: 600;
+    line-height: 80rpx;
+    padding-top: 10rpx;
+    padding-right: 30rpx;
+    text-align: right;
+}

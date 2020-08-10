@@ -1,0 +1,205 @@
+<view wx:if="{{dataLoaded&&!pageErr}}">
+  <view class="order-block order-status">
+    <view class="status-maintitle">      
+       <view wx:if="{{orderDetail.status===0}}">
+            <view>未支付</view>
+        </view>
+        <view wx:elif="{{orderDetail.status===1}}">
+              <view>已支付</view>
+              <view wx:if="{{orderDetail.selfGet===0}}">取餐码：{{orderDetail.takeCode}}</view>
+        </view>
+        <view wx:elif="{{orderDetail.status===2}}">
+              <view>制作完成</view>
+              <view wx:if="{{orderDetail.selfGet===0}}">取餐码：{{orderDetail.takeCode}}</view>
+        </view>
+        <view wx:elif="{{orderDetail.status===3}}">
+              <view>订单关闭</view>
+        </view>
+        <view wx:elif="{{orderDetail.status===4}}">
+              <view>超时关闭</view>
+        </view>
+        <view wx:elif="{{orderDetail.status===5}}">
+              <view>超时取消</view>
+        </view>
+    </view>
+    <!-- <view class="status-subtitle">
+      <view>
+        <text>{{statusArr[0]}}</text>
+        <text class="emph">{{statusArr[1]}}</text>{{statusArr[2]}}
+        <text bindtap="showTips" class="show-tips" id="slowTipIcon" wx:if="{{showSlowPayTips}}">
+                    <text class="seprator">|</text>慢必赔</text>
+      </view>
+    </view> -->
+
+
+    <view class="status-buttons">
+      <view bindtap="cancelOrder" class="btn btn-default" hoverClass="other-button-hover" wx:if="{{orderDetail.status===0}}">取消订单</view>
+      <form bindsubmit="gotoPayment" id="checkout" reportSubmit="true" wx:if="{{orderDetail.status===0}}">
+        <button class="btn btn-warning" formType="submit" hoverClass="other-button-hover">去支付</button>
+      </form>
+      <view bindtap="takeMealCode" class="btn btn-success" hoverClass="other-button-hover" id="takeMealCodeBtn" wx:if="{{utils.getBtnStatus('takeMealCode',orderDetail.orderStatusCode,orderDetail.orderType)}}">取餐码</view>
+      <view bindtap="evaluate" class="btn btn-success" hoverClass="other-button-hover" id="evaluateBtn" wx:if="{{utils.getBtnStatus('evaluate',orderDetail.orderStatusCode)}}">去评价</view>
+    </view>
+
+
+    <!-- <view class="status-buttons">
+      <view bindtap="cancelOrder" class="btn btn-default" hoverClass="other-button-hover" id="cancelOrderBtn" wx:if="{{utils.getBtnStatus('cancel',orderDetail.orderStatusCode,orderDetail.showCancelBtn)}}">取消订单</view>
+      <form bindsubmit="checkout" id="checkout" reportSubmit="true" wx:if="{{utils.getBtnStatus('checkout',orderDetail.orderStatusCode)}}">
+        <button class="btn btn-warning" formType="submit" hoverClass="other-button-hover">去支付</button>
+      </form>
+      <view bindtap="takeMealCode" class="btn btn-success" hoverClass="other-button-hover" id="takeMealCodeBtn" wx:if="{{utils.getBtnStatus('takeMealCode',orderDetail.orderStatusCode,orderDetail.orderType)}}">取餐码</view>
+      <view bindtap="evaluate" class="btn btn-success" hoverClass="other-button-hover" id="evaluateBtn" wx:if="{{utils.getBtnStatus('evaluate',orderDetail.orderStatusCode)}}">去评价</view>
+    </view> -->
+
+
+
+    <image bindtap="callService" class="icon-service" id="btn_callService" src="https://www.eecup.cn/tea/image/eecup/icon/service.png"></image>
+    <view class="take-meal-code" wx:if="{{orderDetail.orderType==2&&orderDetail.orderStatusCode==60}}">
+      取餐码：
+      <text class="emph">{{orderDetail.takeMealCodeInfo.code}}</text>
+      <view class="canvas-box">
+        <image class="qrcode" id="qrcodeBox" src="{{imageData}}"></image>
+      </view>
+      <text class="desc">{{orderDetail.takeCodeDesc}}</text>
+    </view>
+    <view class="status-refund" wx:if="{{orderDetail.refundStatus==1||orderDetail.refundStatus==2}}">
+      <text class="refund-title">退款进度</text>
+      <text class="pull-right">
+                <text class="block refund-subtitle">{{orderDetail.refundStatusName}}</text>
+      <text class="refund-text">{{utils.formatRefundDesc(orderDetail.refundDesc)}}<text class="refund-mount">￥{{utils.formatRefundAmount(orderDetail.refundDesc)}}</text>
+      </text>
+      </text>
+    </view>
+  </view>
+  <view class="order-block shop-address" wx:if="{{orderDetail.selfGet===0}}">
+    <text class="block shop-title">{{shopinfo.storeName}}</text>
+    <text class="address-text">{{shopinfo.storeAddress}}</text>
+  </view>
+  <view class="order-block order-contain">
+    <view class="order-type">
+      <text>{{orderDetail.selfGet===0?'自提':'外卖'}}订单：{{orderDetail.orderId}}</text>
+      <text class="pull-right order-date">{{orderDetail.createDateStr}}</text>
+    </view>
+    <view class="order-list">
+      <view class="order-item" wx:for="{{orderDetail.orderItems}}" wx:key="{{item.sortId}}">
+        <text class="item-name">{{item.title}}</text>
+        <text class="pull-right item-amount">
+                    <text class="item-count">x{{item.num}}</text>
+        <text class="item-value">￥{{utils.fixCount(item.price)}}</text>
+        </text>
+        <text class="block item-addition">{{item.skuDetailDesc}}</text>
+      </view>
+    </view>
+
+    <view class="delivery-count" wx:if="{{orderDetail.selfGet===1}}">
+      <text>配送费</text>
+      <text class="pull-right">￥{{orderDetail.postFee}}</text>
+    </view>
+    <view class="promotion-list" wx:if="{{orderDetail.promotionList.length>0}}">
+      <view class="promotion-item" wx:for="{{orderDetail.promotionList}}" wx:key="{{index}}">
+        <text class="promotion-name">{{item.name}}</text>
+        <text class="promotion-value pull-right" wx:if="{{item.haveAmount}}">-￥{{utils.fixCount(item.amount)}}</text>
+      </view>
+    </view>
+    <view class="order-total">
+      <view class="pull-right">
+        <!-- <text>共{{orderDetail.productAmount}}件商品</text> -->
+        <text class="total-count">实付<text class="bold">￥{{utils.fixCount(orderDetail.payment)}}</text>
+        </text>
+      </view>
+    </view>
+  </view>
+  <view bindtap="goDetailRemark" class="order-block order-evaluate" id="goDetailRemark" wx:if="{{remark}}">
+    <text class="sub-title">备注特殊要求</text>
+    <div class="pull-right evaluate-content">{{remark}}</div>
+    <image></image>
+  </view>
+  <view class="order-block" wx:if="{{showDispatchTime}}">
+    <text class="sub-title">取餐时间</text>
+    <text class="pull-right date">{{orderDetail.takeMealTime}}</text>
+  </view>
+  <view class="order-block" wx:if="{{orderDetail.orderType===1}}">
+    <view class="order-addr">
+      <text class="sub-title">收货地址</text>
+      <text class="pull-right">
+                <text class="addr">{{orderDetail.dispatchInfo.dispatchAddress}}</text>
+      <text class="name">{{orderDetail.dispatchInfo.memberName}} {{orderDetail.dispatchInfo.memberMobile}}</text>
+      </text>
+    </view>
+    <view class="order-delivery" wx:if="{{showDeliveryContact}}">
+      <text class="sub-title">配送员</text>
+      <view class="pull-right delivery-name">
+        <text class="text">{{orderDetail.dispatchInfo.dispatcherName}}</text>
+        <image bindtap="dialTel" data-tel="{{orderDetail.dispatchInfo.dispatcherMobile}}" id="dialTelBtn"></image>
+      </view>
+    </view>
+    <view class="order-arrival-time" wx:if="{{showArrivalTime}}">
+      <div class="sub-title">
+        送达时间
+        <text bindtap="showTips" class="show-tips" id="slowTipIcon" wx:if="{{orderDetail.dispatchInfo.slowpaymentTime===1}}">
+                    <text class="seprator">|</text>慢必赔</text>
+      </div>
+      <text class="pull-right date">{{orderDetail.dispatchInfo.arriveTime}}</text>
+    </view>
+  </view>
+  <view bindtap="myEvaluate" class="order-block order-evaluate" id="myEvaluateBtn" wx:if="{{showEvaluate}}">
+    <text class="sub-title">我的评价</text>
+    <div class="pull-right evaluate-content"></div>
+    <image></image>
+  </view>
+  <view bindtap="toInviter" class="order-invite" id="toInviter">
+    <image mode="widthFix" src="{{inviteImgUrl}}"></image>
+  </view>
+  <view bindtap="setDetailType" class="order-download {{isIpx?'is-ipx':''}}" id="btn_setDetailType" wx:if="{{orderDetail.isShowFission}}">
+    <image mode="widthFix" src="{{fissionImgUrl}}"></image>
+  </view>
+  <view bindtap="closeSharePopup" class="popup popup-show" id="btn_closeSharePopup" wx:if="{{showShareTip}}">
+    <view class="popup-mask"></view>
+    <view class="sharetip-container">
+      <image class="sharetip" mode="aspectFit" src="https://www.eecup.cn/tea/image/eecup/icon/order/share_cup.png"></image>
+    </view>
+  </view>
+  <view class="popup {{showPopup&&!hasClosePopup?'popup-show':''}}">
+    <view class="popup-mask"></view>
+    <view class="popup-container popup-example-center">
+      <view bindtap="closePopup" class="popup-close" id="closePopupBtn"></view>
+      <image bindtap="popupAction" id="advertImage" src="{{advertImage}}"></image>
+    </view>
+  </view>
+</view>
+<view class="pageErr" wx:if="{{pageErr}}">
+  <view class="errTip">获取失败</view>
+  <view bindtap="reload" class="reloadBtn" id="reloadBtn">重新加载</view>
+</view>
+<view class="awakenCoupon" wx:if="{{isAwakenCoupon}}">
+  <form bindsubmit="closeOpen" id="awakenCoupon" reportSubmit="true">
+    <view class="couponForm" style="background-image: url('{{couponBackground?couponBackground:'https://www.eecup.cn/tea/image/eecup/icon/index/icon2.0_orderDefault.png'}}')">
+      <view class="couponItem couponOne" wx:if="{{awakenCouponList.length>0&&awakenCouponList.length<2}}">
+        <view class="couponNum">
+          <text class="numSize">{{awakenCouponList[0].denomination}}</text>
+          <text>{{awakenCouponList[0].unit}}</text>
+        </view>
+        <view class="couponName">{{awakenCouponList[0].couponName}}</view>
+      </view>
+      <block wx:if="{{awakenCouponList.length>1&&awakenCouponList.length<3}}">
+        <view class="couponItem couponTwo1">
+          <view class="couponNum">
+            <text class="numSize">{{awakenCouponList[0].denomination}}</text>
+            <text>{{awakenCouponList[0].unit}}</text>
+          </view>
+          <view class="couponName">{{awakenCouponList[0].couponName}}</view>
+        </view>
+        <view class="couponItem couponTwo2">
+          <view class="couponNum">
+            <text class="numSize">{{awakenCouponList[1].denomination}}</text>
+            <text>{{awakenCouponList[1].unit}}</text>
+          </view>
+          <view class="couponName">{{awakenCouponList[1].couponName}}</view>
+        </view>
+      </block>
+      <button class="couponBtn" formType="submit"></button>
+      <view bindtap="closeOpen" class="closeBtn" id="closeMillionBtn"></view>
+    </view>
+  </form>
+</view>
+<wxs module="utils" src="detailUtils.wxs" />

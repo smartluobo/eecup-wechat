@@ -1,0 +1,26 @@
+<view class="container address-list">
+  <view class="nothing" wx:if="{{noAddressDesc&&!addressList||addressList.length===0}}">
+    <view class="icon"></view>
+    <view class="text">您还没有地址信息</view>
+  </view>
+  <block wx:else>
+    <view class="top-space"></view>
+    <view class="note">我的收货地址</view>
+    <view class="list" wx:if="{{addressList&&addressList.length>0}}">
+      <view bindtap="addressEditClickHandler" class="item" data-address="{{item}}" id="addressEdit" wx:for="{{addressList}}" wx:key="{{ index }}">
+        <view class="address">{{item.addressName}}</view>
+        <view class="detail">
+          <label class="defaultTag" wx:if="{{item.isDefault===1}}">默认地址</label>
+          <label class="tag" wx:if="{{item.tag}}">{{item.tag}}</label>
+          <text class="mobile">{{item.phoneNum}} {{item.userName}}</text>
+        </view>
+        <label class="edit" data-address="{{item}}"></label>
+      </view>
+    </view>
+  </block>
+  <view class="btns">
+    <form bindsubmit="addressAddOrUpdate" data-address-id="0" id="addAddressBtn" reportSubmit="true">
+      <button class="btn add-btn {{isIpx?'isIphonex':''}}" formType="submit">+新增地址</button>
+    </form>
+  </view>
+</view>

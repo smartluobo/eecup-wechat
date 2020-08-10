@@ -1,0 +1,129 @@
+/* @import "../../assets/tpls/navItem/navItem.wxss"; */
+
+scroll-view {
+    /* background: #fff; */
+    min-height: 100vh;
+}
+
+.top {
+    overflow: hidden;
+    background-image: url(https://www.eecup.cn/tea/image/eecup/icon/shareBackground.png);
+    width: 750rpx;
+    height: 1300rpx;
+    background-size:750rpx 1300rpx;
+    /* height: 278rpx; */
+    /* padding: 40rpx 40rpx; */
+    font-size: 32rpx;
+    line-height:60rpx;
+    /* opacity: 0.7; */
+    /* color: #fff;
+    background: #F2CBA4; */
+    position: relative;
+}
+.share{
+    text-align: center;
+    font-size: 45rpx;
+    /* height: 72rpx;
+    width: 288rpx; */
+    height: 100rpx;
+    width: 500rpx;
+    line-height: 100rpx;
+    border-radius: 20rpx;
+    /* border: 1rpx solid #FFD708; */
+    margin: 0 auto;
+    margin-top: 30rpx;
+    background: #FFD708;
+    color: #BF3737;
+outline: none;  
+opacity: 0;
+    /* background-image: url(https://www.eecup.cn/tea/image/eecup/icon/shareButton.png);
+    background-size:288rpx 72rpx; */
+    position: absolute;
+    top:950rpx;
+    left:50%;
+    margin-left: -250rpx;
+}
+.title{
+    text-align: center;
+    line-height: 80rpx;
+    font-size: 40rpx;
+}
+
+.top::after {
+    content: '\20';
+    position: absolute;
+    top: 120rpx;
+    color: #333;
+}
+
+.top .avatarWrap {
+    width: 110rpx;
+    height: 110rpx;
+    margin: 0 34rpx 0 42rpx;
+    border-radius: 50%;
+    box-shadow: 0 0 50rpx #ccc;
+    border: 1px solid #fff;
+    overflow: hidden;
+}
+
+.top .avatar image {
+    width: 100%;
+    height: 100%;
+}
+
+.top .text {
+    display: flex;
+    height: 110rpx;
+    font-size: 34rpx;
+    color: #333;
+    line-height: 130%;
+    word-break: break-all;
+    word-wrap: break-word;
+    flex: 1;
+    align-items: center;
+}
+
+.navList .navItem {
+    background: #fff;
+    color: #333;
+    border: none;
+}
+
+.navList .navItem .extra {
+    font-size: 26rpx;
+    color: #999;
+}
+
+.member .navItem::before {
+    width: 38rpx;
+    height: 38rpx;
+    left: 42rpx;
+    top: 30rpx;
+    background-size: auto 100%;
+}
+
+.member .arrowsLeft::after {
+    right: 34rpx;
+}
+
+.advertLink {
+    text-align: center;
+    padding: 50rpx 30rpx;
+}
+
+.advertLink image {
+    width: 100%;
+    border-radius: 3rpx;
+}
+
+.share-img-button::after{
+  border: none
+}
+
+.share-img-button{
+ background-color: #fff;
+ border-radius: 0;
+ padding-left: 0px;
+ padding-right: 0px;
+
+}

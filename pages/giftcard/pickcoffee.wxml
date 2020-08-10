@@ -1,0 +1,63 @@
+<navigator class="sending_tips" url="/pages/giftcard/record?curIndex=2" wx:if="{{giftNum>0}}">
+    <view class="txt">
+    您有赠送中的咖啡，点击查看
+  </view>
+</navigator>
+<view class="card_panle" wx:if="{{!loading&&cardList.length}}">
+    <view bind:touchend="btnEndTouch" bind:touchmove="btnTouchMove" class="card_item_wrap" wx:for="{{cardList}}" wx:key="{{ index }}">
+        <view class="card_item">
+            <view class="card_content">
+                <view class="card_left">
+                    <view class="card_price">
+                        <text style="font-size: 26rpx;">￥</text>{{item.price}}
+          </view>
+                    <view class="card_tips">
+            尚余{{item.stockNum}}杯
+          </view>
+                </view>
+                <view class="card_center">
+                    <view class="card_title">
+                        <view bind:tap="openDes" class="card_title_text" data-item="{{item}}" id="openDes1">
+              {{item.coffeeStockTitle}}
+            </view>
+                        <text bind:tap="openDes" class="card_text_tips" data-item="{{item}}" id="openDes2"></text>
+                    </view>
+                    <view class="card_limit_time">
+            期限：{{item.term}}
+          </view>
+                </view>
+                <view class="card_right">
+                    <view bind:touchcancel="btnTouchCancel" bind:touchstart="cradBtnInit" class="card_minus" data-index="{{index}}" data-num="{{-1}}"></view>
+                    <view class="card_count">{{item.count}}</view>
+                    <view bind:touchcancel="btnTouchCancel" bind:touchstart="cradBtnInit" class="card_add" data-index="{{index}}" data-num="{{1}}"></view>
+                </view>
+                <view class="card_modal_count" wx:if="{{item.showCount}}">{{item.count}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="not_coffee_card" wx:if="{{!loading&&cardList.length===0}}">
+    <image class="not_img" src="https://www.eecup.cn/tea/image/eecup/icon/coffeebank/bg_wallet_empty.png"></image>
+    <view class="not_txt">
+    暂无可转赠的咖啡
+  </view>
+    <navigator class="add_coffee_card" url="/pages/coupon/walletbuy?from=sendgift">充赠优惠</navigator>
+</view>
+<view style="height: 140rpx;" wx:if="{{isIpx}}"></view>
+<view style="height: 120rpx;" wx:else></view>
+<view class="btn_bottom {{isIpx?'ipx_bottom':''}}" wx:if="{{cardList.length}}">
+    <button bindtap="sendFriend" class="send_friends" disabled="{{requestting||!isCheck}}" id="sendFriend">
+    赠送好友
+  </button>
+</view>
+<view class="dialog" wx:if="{{showDialog}}">
+    <view class="dialog_mask"></view>
+    <view class="dialog_body">
+        <view class="dialog_content">
+      您精心准备的，是最好的礼物
+    </view>
+        <button class="dialog_btn" hoverClass="none" openType="share">
+      通知好友
+    </button>
+    </view>
+</view>

@@ -1,0 +1,36 @@
+<view class="recordDetail">
+    <view class="cardInfo">
+        <image class="cardImg" src="{{detailInfo.giftCardImage?detailInfo.giftCardImage:'https://www.eecup.cn/tea/image/eecup/icon/giftCard/giftcard_default.png'}}"></image>
+        <view class="cardText">{{detailInfo.wishContent}}</view>
+        <view class="cardFromTo" wx:if="{{status==0}}">赠给好友：{{detailInfo.name}}</view>
+        <view class="cardFromTo" wx:if="{{status==1}}">来自好友：{{detailInfo.name}}</view>
+    </view>
+    <view class="cardBox">
+        <view class="totalTip">
+            <view>共{{detailInfo.totalNum}}杯</view>
+            <view class="sendTime">{{detailInfo.time}}</view>
+        </view>
+        <view class="card-item" wx:for="{{detailInfo.coffeeStock}}" wx:key="{{index}}">
+            <view class="card-content">
+                <view class="card-leftBox">
+                    <view class="card-price">￥{{number(item.money)}}</view>
+                    <view class="card-num">{{item.givenNum}}杯</view>
+                </view>
+                <view bindtap="openDesc" class="card-type" data-rule="{{item.rule}}" id="btn_openDesc1">{{item.couponName}}</view>
+                <view class="card-time">期限：{{item.term}}</view>
+            </view>
+            <view class="notch top-notch"></view>
+            <view class="notch bottom-notch"></view>
+        </view>
+    </view>
+    <view class="cancelBtnBox {{isIpx?'ipxBtn':''}}" wx:if="{{status!=0}}">
+        <view bindtap="cancelSend" class="cancelBtn" id="cancelSend" wx:if="{{status==2}}">取消转赠</view>
+        <view class="btnBox" wx:else>
+            <view bindtap="toCard" class="usBtn" id="toCard" wx:if="{{status==1}}">我也要送</view>
+            <view bindtap="toMenu" class="usBtn buleBtn" id="toMenu" wx:if="{{status==1}}">立即喝一杯</view>
+        </view>
+    </view>
+</view>
+<wxs module="number">
+module.exports = Number;
+</wxs>

@@ -1,0 +1,60 @@
+<view class="headEdit">
+    <view class="listItem">
+        <view class="leftName">发票抬头</view>
+        <view class="rightValue">
+            <input bindinput="titleNameInput" placeholder="请输入公司名称（必填）" placeholderStyle="color:#BFBFBF;" value="{{titleName}}"></input>
+            <view bindtap="goHead" class="hasArrow" id="goHead"></view>
+        </view>
+    </view>
+    <view class="listItem">
+        <view class="leftName identityNo">纳税人识别号</view>
+        <view class="rightValue">
+            <input bindinput="identityNoInput" placeholder="（选填）" placeholderStyle="color:#BFBFBF;" value="{{identityNo}}"></input>
+        </view>
+    </view>
+    <view class="listItem emailItem">
+        <view class="leftName">电子邮箱</view>
+        <view class="rightValue">
+            <input bindinput="emailInput" placeholder="（必填)" placeholderStyle="color:#BFBFBF;" value="{{email}}"></input>
+        </view>
+    </view>
+    <view class="listItem">
+        <view class="leftName">注册地址</view>
+        <view class="rightValue">
+            <input bindinput="registerAddrInput" placeholder="（选填）" placeholderStyle="color:#BFBFBF;" value="{{registerAddr}}"></input>
+        </view>
+    </view>
+    <view class="listItem">
+        <view class="leftName">注册电话</view>
+        <view class="rightValue">
+            <input bindinput="registerTelInput" maxlength="11" placeholder="（选填）" placeholderStyle="color:#BFBFBF;" type="number" value="{{registerTel}}"></input>
+        </view>
+    </view>
+    <view class="listItem">
+        <view class="leftName">开户银行</view>
+        <view class="rightValue">
+            <input bindinput="depositBankInput" placeholder="（选填）" placeholderStyle="color:#BFBFBF;" value="{{depositBank}}"></input>
+        </view>
+    </view>
+    <view class="listItem">
+        <view class="leftName">银行账户</view>
+        <view class="rightValue">
+            <input bindinput="bankNoInput" placeholder="（选填）" placeholderStyle="color:#BFBFBF;" type="number" value="{{bankNo}}"></input>
+        </view>
+    </view>
+    <view class="checkBox">
+        <view bindtap="checkDefault" class="check {{isDefault?'checked':''}}" id="checkDefault"></view>
+        <view bindtap="checkDefault" class="checkText" id="checkDefault">设为默认发票抬头</view>
+    </view>
+    <view class="invoiceFoot" wx:if="{{type==='edit'}}">
+        <view class="editFoot">
+            <view bindtap="deleteHander" class="cancelBtn" id="delete">删除</view>
+            <view bindtap="submitHander" class="submitBtn {{canSubmit?'canSubmit':''}}" id="submit">保存</view>
+        </view>
+        <view class="ipxBox" wx:if="{{isIpx}}"></view>
+    </view>
+    <view class="invoiceFoot" wx:else>
+        <view bindtap="submitHander" class="submitBtn saveBtn {{canSubmit?'canSubmit':''}}" id="submit">保存</view>
+        <view class="ipxBox" wx:if="{{isIpx}}"></view>
+    </view>
+</view>

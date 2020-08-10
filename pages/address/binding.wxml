@@ -1,0 +1,11 @@
+<view class="address_mark">为确保及时通知你取茶，请预留手机号码~</view>
+<view class="tell">
+    <input type="number" class="enter" bindinput="userTell" placeholder="请输入绑定手机号" maxlength="11"/>
+</view>
+<view class="verification">
+	<input type="number" class="enter" bindinput="Verification"  placeholder="请输入验证码"/>
+<button class="sendVerification" bindtap="sendCode" disabled='{{disabled}}'>{{time}}</button>
+</view>
+<view class="bindingBox">
+	<view class="binding" bindtap="login">确定</view>
+</view>

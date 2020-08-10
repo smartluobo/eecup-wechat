@@ -1,0 +1,38 @@
+<template name="emptyList">
+    <view class="empty-list">您的咖啡钱包有点寂寞</view>
+</template>
+<template name="cardItem">
+    <view bindtap="selectItem" class="card-item" data-item="{{item}}" id="btn_selectItem">
+        <view class="card-content">
+            <view class="card-type">{{item.type}} {{item.typeDesc}}</view>
+            <view class="card-price">￥{{item.price}}</view>
+            <view class="card-num">{{item.stockDesc}}</view>
+            <view class="card-image">
+                <image src="{{item.imgUrl}}"></image>
+            </view>
+        </view>
+        <view class="notch left-notch"></view>
+        <view class="notch right-notch"></view>
+    </view>
+</template>
+<view bindtap="openDesc" class="wallet-desc" id="wallet-desc">咖啡钱包说明</view>
+<view class="wallet-list {{isIpx?'is-ipx':''}}">
+    <template is="cardItem" data="{{item:item,index:index}}" wx:if="{{ticketList.length>0}}" wx:for="{{ticketList}}" wx:key="index"></template>
+    <template is="emptyList" data wx:if="{{ticketList.length<=0}}"></template>
+</view>
+<view class="usewallet-footer {{isIpx?'fix-iphonex-bottom':''}}">
+    <view class="btn-container">
+        <view bindtap="goBuyTicket" class="discount btn" id="discount btn">充赠优惠</view>
+        <view bindtap="toGiftCard" class="offer btn" id="offer btn">幸运送</view>
+        <view bindtap="openModal" class="redpacket btn" id="redpacket btn">发送红包</view>
+    </view>
+</view>
+<view class="warp {{dialog?'show':'hide'}}">
+    <view class="content">
+        <view class="contentText">
+            <view class="dialogText">{{dailogText}}</view>
+        </view>
+        <view bindtap="toRecord" class="bottomBtn toRecord" id="toSendRecord">查看转赠记录</view>
+        <view bindtap="iKonw" class="bottomBtn iKnow" id="Ikonw">我知道了</view>
+    </view>
+</view>

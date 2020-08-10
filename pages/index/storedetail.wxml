@@ -1,0 +1,47 @@
+<view class="storeDetail" style="height:{{imgDialog?'100vh;overflow: hidden;':'100%'}}">
+    <view class="storeInfo">
+        <image bindtap="storePhone" class="icon_phone" data-phone="{{storeDetail.shopTelephone}}" id="storePhone" src="https://www.eecup.cn/tea/image/eecup/icon/storedetail_phone.png"></image>
+        <view class="storeName">
+            <text>{{storeDetail.name}}{{storeDetail.number}}</text>
+            <image class="icon_level" src="{{storeDetail.levelImg}}"></image>
+        </view>
+        <view class="storeTime">
+            <view class="leftName">营业时间：</view>
+            <view class="rightValue">
+                <view class="timeItem" wx:for="{{workTimeimeArr}}" wx:key="{{index}}">
+            {{item}}
+          </view>
+            </view>
+        </view>
+        <view class="storeAddress">
+            <view class="leftName">门店地址：</view>
+            <view class="rightValue">{{storeDetail.address}}</view>
+        </view>
+    </view>
+    <view class="storePicture" wx:if="{{storeDetail.shopImageList.length>0}}">
+        <view class="boxName">门店图片</view>
+        <view class="pictureBox">
+            <view class="shopImage" wx:for="{{shopImageList}}" wx:key="{{index}}">
+                <view bindtap="showImg" class="picture" data-imgarr="{{storeDetail.shopImageList}}" data-index="{{index}}" id="showImg" style="background-image: url('{{item}}')"></view>
+            </view>
+        </view>
+    </view>
+    <view class="storePicture" style="padding-bottom:{{isDrankShow&&storeDetail.qualifications.length>0?'200rpx;':''}}" wx:if="{{storeDetail.qualifications.length>0}}">
+        <view class="boxName">门店资质</view>
+        <view class="pictureBox">
+            <view class="shopImage qualificationImage" wx:for="{{qualifications}}" wx:key="{{index}}">
+                <view bindtap="showImg" class="picture" data-imgarr="{{storeDetail.qualifications}}" data-index="{{index}}" id="showImg2" style="background-image: url('{{item}}')"></view>
+            </view>
+        </view>
+    </view>
+    <cover-view class="storeDetailFoot" wx:if="{{isDrankShow}}">
+        <cover-view bindtap="goBtn" class="goBtn" id="goBtn">去喝一杯</cover-view>
+        <cover-view class="ipxBox" wx:if="{{isIpx}}"></cover-view>
+    </cover-view>
+    <view bindtap="closeImg" class="imgWarp" id="closeImg" wx:if="{{imgDialog}}"></view>
+    <swiper autoplay="{{false}}" circular="{{true}}" class="swiper" current="{{current}}" duration="{{1000}}" indicatorDots="{{false}}" interval="{{5000}}" wx:if="{{imgDialog}}">
+        <swiper-item wx:for="{{imgUrls}}" wx:key="{{index}}">
+            <view class="slide-image" style="background-image: url('{{item}}')"></view>
+        </swiper-item>
+    </swiper>
+</view>

@@ -1,0 +1,8 @@
+.remarkBox {
+    margin: 20rpx;
+    background: #f8f8f8;
+    min-height: 35vh;
+    font-size: 26rpx;
+    text-indent: 10rpx;
+    padding: 20rpx;
+}

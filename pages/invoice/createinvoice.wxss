@@ -1,0 +1,135 @@
+.createInvoice {
+    font-family: PingFangSC-Regular;
+    width: 100%;
+    min-height: 100vh;
+    background: #fbfbfb;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.listItem {
+    width: 100%;
+    height: 106rpx;
+    line-height: 106rpx;
+    background-color: #fff;
+    border-top: 1rpx solid rgba(229,229,229,0.2);
+    display: flex;
+    padding: 0rpx 30rpx;
+}
+
+.emailItem {
+    margin-top: 20rpx;
+    border-top: none;
+}
+
+.leftName {
+    font-size: 30rpx;
+    width: 144rpx;
+    margin-right: 26rpx;
+}
+
+.rightValue {
+    min-width: 520rpx;
+    font-size: 28rpx;
+    color: #666;
+    position: relative;
+}
+
+.checkBox image {
+    width: 44rpx;
+    height: 44rpx;
+    margin-top: 30rpx;
+    display: inline-block;
+}
+
+.leftCheck,.rightCheck {
+    display: inline-block;
+    position: relative;
+    width: 200rpx;
+}
+
+.hasArrow {
+    content: ' ';
+    width: 12rpx;
+    height: 12rpx;
+    border-right: 2rpx solid #666;
+    border-top: 2rpx solid #666;
+    position: absolute;
+    top: 42rpx;
+    right: 0rpx;
+    transform: rotate(45deg);
+}
+
+.downArrow {
+    transform: rotate(135deg);
+}
+
+.upArrow {
+    transform: rotate(-45deg);
+}
+
+.arrowBox {
+    width: 50rpx;
+    height: 40rpx;
+    text-align: center;
+    line-height: 40rpx;
+    display: inline-block;
+}
+
+.leftCheck {
+    margin-right: 40rpx;
+}
+
+.checkText {
+    position: absolute;
+    margin-left: 20rpx;
+}
+
+.rightValue input {
+    width: 470rpx;
+    font-size: 28rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    margin-top: 33rpx;
+    color: #333;
+    display: inline-block;
+}
+
+.identityNo {
+    font-size: 24rpx;
+    line-height: 106rpx;
+}
+
+.invoiceTip {
+    margin: 16rpx 30rpx 136rpx 30rpx;
+    font-size: 24rpx;
+    color: #999;
+}
+
+.invoiceFoot {
+    width: 100%;
+    height: 116rpx;
+    border-top: 1rpx solid rgba(229,229,229,0.2);
+    position: fixed;
+    bottom: 0rpx;
+    background: #fff;
+    box-shadow: 0 -1px 5px 0 rgba(0,0,0,0.05);
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.submitBtn {
+    width: 690rpx;
+    height: 84rpx;
+    margin: 16rpx auto;
+    background: #bdd3e8;
+    border-radius: 6rpx;
+    font-size: 30rpx;
+    color: #fff;
+    line-height: 84rpx;
+    text-align: center;
+}
+
+.canSubmit {
+    background-color: #f2cba4;
+}

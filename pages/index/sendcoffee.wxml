@@ -1,0 +1,10 @@
+<view class="snedCoffee">
+    <view bindtap="toView" class="listBox" data-item="{{item}}" id="toView" wx:for="{{textInfo}}" wx:key="{{index}}">
+        <image class="listImg" src="{{item.iconUrl}}"></image>
+        <view class="listText">
+            <text class="listTitle">{{item.title}}</text>
+            <text>{{item.desc}}</text>
+        </view>
+        <button class="listBtn">{{item.buttonDesc}}</button>
+    </view>
+</view>

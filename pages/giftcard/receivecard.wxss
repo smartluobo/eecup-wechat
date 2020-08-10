@@ -1,0 +1,277 @@
+page {
+    background: #fff;
+}
+
+.gift_card_bannel {
+    margin: 30rpx 40rpx 40rpx;
+    width: 670rpx;
+    height: 420rpx;
+    border-radius: 24rpx;
+    box-shadow: 0 8rpx 20rpx rgba(0,0,0,0.1);
+}
+
+.card_info {
+    display: flex;
+    padding: 0 40rpx 0 52rpx;
+    margin-bottom: 60rpx;
+}
+
+.user_avatar {
+    border-radius: 50%;
+    width: 104rpx;
+    height: 104rpx;
+    box-shadow: 0 8rpx 20rpx rgba(0,0,0,0.1);
+    margin-right: 40rpx;
+}
+
+.card_info_main {
+    flex: 1;
+}
+
+.card_info_main .card_title {
+    font-size: 28rpx;
+    line-height: 40rpx;
+    margin-bottom: 18rpx;
+}
+
+.card_info_main .card_text {
+    font-size: 26rpx;
+    line-height: 36rpx;
+    color: #999;
+}
+
+.not_mobile {
+    padding: 40rpx;
+}
+
+.not_mobile input {
+    box-sizing: border-box;
+    width: 100%;
+    border: 1rpx solid #ccc;
+    border-radius: 8rpx;
+    padding: 0 18rpx;
+    font-size: 30rpx;
+    line-height: 80rpx;
+    height: 80rpx;
+    text-align: center;
+}
+
+.placeholder {
+    text-align: center;
+}
+
+.is_mobile {
+    margin: 0 40rpx;
+    padding: 60rpx 0 48rpx;
+    display: flex;
+    font-size: 28rpx;
+    line-height: 40rpx;
+    justify-content: center;
+}
+
+.modify_mobile_img {
+    width: 30rpx;
+    height: 30rpx;
+    margin-left: 36rpx;
+}
+
+.open_wrap {
+    padding: 0 40rpx;
+}
+
+.open_wrap button {
+    height: 80rpx;
+    line-height: 80rpx;
+    background: #f2cba4;
+    font-size: 30rpx;
+    color: #fff;
+    border-radius: 6rpx;
+}
+
+.open_wrap button[disabled] {
+    background: #f2cba4;
+    color: #fff;
+    opacity: 0.5;
+}
+
+.recive_close {
+    margin: 0 40rpx;
+    text-align: center;
+    padding-top: 60rpx;
+}
+
+.reveie_include {
+    font-size: 30rpx;
+    line-height: 42rpx;
+    margin-bottom: 12rpx;
+}
+
+.receive_amount {
+    font-size: 24rpx;
+    line-height: 34rpx;
+    color: #666;
+    margin-bottom: 60rpx;
+}
+
+.btn_bar {
+    display: flex;
+}
+
+.btn_bar button {
+    flex: 1;
+    box-sizing: border-box;
+    width: 162rpx;
+    height: 80rpx;
+    font-size: 30rpx;
+    line-height: 80rpx;
+    margin-right: 22rpx;
+    border-radius: 6rpx;
+    box-shadow: none;
+}
+
+.btn_bar button::before,.btn_bar button::after {
+    content: none;
+}
+
+.btn_bar .send_too {
+    background: #fff;
+    color: #f2cba4;
+    border: 2rpx solid #f2cba4;
+}
+
+.btn_bar .now_drink {
+    margin-right: 0;
+    background: #f2cba4;
+    color: #fff;
+}
+
+.dialog .dialog_mask,.dialog .dialog_body {
+    animation: fade-in 0.3s;
+}
+
+.dialog_mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+
+.dialog_body {
+    position: fixed;
+    box-sizing: border-box;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%,-50%,0);
+    width: 540rpx;
+    height: 370rpx;
+    background: #fff;
+    border-radius: 12rpx;
+    overflow: hidden;
+    padding-top: 62rpx;
+}
+
+.dialog_close {
+    position: absolute;
+    width: 28rpx;
+    height: 28rpx;
+    right: 32rpx;
+    top: 32rpx;
+    z-index: 1;
+}
+
+.modify_tips,.receive_tips {
+    text-align: center;
+    font-size: 26rpx;
+    line-height: 44rpx;
+    color: #666;
+    margin-bottom: 20rpx;
+}
+
+.modify_input_wrap {
+    position: relative;
+    margin: 0 40rpx;
+    padding: 0 60rpx 0 20rpx;
+    border: 2rpx solid #ccc;
+    height: 80rpx;
+    margin-bottom: 32rpx;
+}
+
+.input_clear {
+    position: absolute;
+    width: 30rpx;
+    height: 30rpx;
+    font-size: 20rpx;
+    line-height: 30rpx;
+    color: #fff;
+    border-radius: 50%;
+    background: #cdcdcd;
+    text-align: center;
+    top: 25rpx;
+    right: 25rpx;
+}
+
+.modify_input_wrap input {
+    font-size: 28rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+}
+
+.dialog_btn {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 30rpx;
+    line-height: 88rpx;
+    background: #f2cba4;
+}
+
+.dialog_btn.disabled {
+    opacity: 0.5;
+}
+
+.receive_title {
+    font-size: 30rpx;
+    line-height: 42rpx;
+    text-align: center;
+    margin-top: 12rpx;
+    margin-bottom: 38rpx;
+}
+
+.receive_tips {
+    margin-bottom: 40rpx;
+}
+
+@-webkit-keyframes fade-in {
+    from {
+        opacity: 0.3;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0.3;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.liner {
+    width: 670rpx;
+    height: 2rpx;
+    margin: 0 40rpx;
+    display: block;
+    background-image: linear-gradient(to right,#ccc 0%,#ccc 50%,transparent 50%);
+    background-size: 16rpx 2rpx;
+    background-repeat: repeat-x;
+}

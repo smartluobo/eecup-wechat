@@ -1,0 +1,104 @@
+.invoiceHead {
+    min-height: 100vh;
+    background: #fbfbfb;
+    box-sizing: border-box;
+    font-family: PingFangSC-Regular;
+    width: 100%;
+    overflow: hidden;
+}
+
+.itemBox {
+    width: 850rpx;
+    display: flex;
+}
+
+.delBox {
+    width: 100rpx;
+    background-color: #e32727;
+    font-size: 30rpx;
+    text-align: center;
+    line-height: 104rpx;
+    color: #fff;
+}
+
+.listItem {
+    width: 750rpx;
+    height: 104rpx;
+    font-size: 30rpx;
+    line-height: 104rpx;
+    padding: 0rpx 38rpx;
+    background: #fff;
+    border-top: 1rpx solid rgba(229,229,229,0.2);
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon_edit {
+    width: 80rpx;
+    margin-right: -20rpx;
+}
+
+.icon_edit image {
+    width: 34rpx;
+    height: 32rpx;
+    display: block;
+    margin: 38rpx auto;
+}
+
+.icon_no {
+    width: 250rpx;
+    height: 150rpx;
+    display: block;
+    margin: 0rpx auto 40rpx auto;
+    padding-top: 228rpx;
+}
+
+.noText {
+    text-align: center;
+    color: #666;
+    font-size: 26rpx;
+}
+
+.titleName {
+    min-width: 300rpx;
+}
+
+.invoiceFoot {
+    width: 100%;
+    border-top: 1rpx solid rgba(229,229,229,0.2);
+    position: fixed;
+    bottom: 0rpx;
+    background: #fff;
+    box-shadow: 0 -1px 5px 0 rgba(0,0,0,0.05);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.ipxBox {
+    width: 100%;
+    height: 50rpx;
+    display: block;
+}
+
+.submitBtn {
+    width: 690rpx;
+    height: 84rpx;
+    margin: 16rpx auto;
+    background: #f2cba4;
+    border-radius: 6rpx;
+    font-size: 30rpx;
+    color: #fff;
+    line-height: 84rpx;
+    text-align: center;
+}
+
+.submitBtn text {
+    display: inline-block;
+}
+
+.icon_add {
+    font-size: 40rpx;
+    margin-right: 10rpx;
+    vertical-align: middle;
+    margin-top: -9rpx;
+}

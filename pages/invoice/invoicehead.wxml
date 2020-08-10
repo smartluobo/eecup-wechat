@@ -1,0 +1,24 @@
+<view class="invoiceHead">
+    <block wx:if="{{titleList.length>0}}">
+        <view class="itemBox" style="{{item.itemStyle}}" wx:for="{{titleList}}" wx:key="{{index}}">
+            <view bindtouchend="removeEnd" bindtouchmove="recordMove" bindtouchstart="removeStart" class="listItem" data-index="{{index}}" data-item="{{item}}">
+                <view catchtap="choseHander" class="titleName" data-item="{{item}}" id="choseHander">{{item.titleName}}</view>
+                <view bindtap="editHander" class="icon_edit" data-item="{{item}}" id="editHander">
+                    <image src="https://www.eecup.cn/tea/image/eecup/icon/invoice/icon_edit.png"></image>
+                </view>
+            </view>
+            <view bindtap="deleteHander" class="delBox" data-titleid="{{item.titleId}}" id="delete">删除</view>
+        </view>
+    </block>
+    <view wx:else>
+        <image class="icon_no" src="https://www.eecup.cn/tea/image/eecup/icon/nothing.png"></image>
+        <view class="noText">您还没有发票抬头</view>
+    </view>
+    <view class="invoiceFoot">
+        <view bindtap="submitHander" class="submitBtn" id="submit">
+            <text class="icon_add">+</text>
+            <text>添加发票抬头</text>
+        </view>
+        <view class="ipxBox" wx:if="{{isIpx}}"></view>
+    </view>
+</view>

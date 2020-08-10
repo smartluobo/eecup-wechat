@@ -1,0 +1,111 @@
+<template name="productItemPartB">
+    <view id="index-{{idx}}">
+        <view class="product-category" id="kind-{{idx}}">
+            <view class="product-category-text">
+                <view class="title-box">
+                    <text class="title">{{item.kindName}}</text>
+                    <image class="title-icon" lazyLoad="true" mode="aspectFit" src="{{item.displayedIconUrl}}" wx:if="{{item.displayedIconUrl&&!item.kindDescIsOnSale}}"></image>
+                </view>
+                <view class="sub-box" wx:if="{{item.kindDesc}}">
+                    <text class="subtitle" wx:if="{{item.kindDescIsOnSale}}">
+                        <text class="colored">{{item.kindDescOnSaleFirst}}</text>
+                        <text wx:if="{{item.kindDescOnSaleRest}}"> / {{item.kindDescOnSaleRest}}</text>
+                    </text>
+                    <text class="subtitle" wx:elif="{{!item.displayedIconUrl&&!item.kindDescIsOnSale}}">{{item.kindDesc}}</text>
+                </view>
+            </view>
+            <view class="title-hr {{item.kindDesc?'sub-hr':''}}"></view>
+        </view>
+        <block wx:for="{{item.productList}}" wx:for-item="product" wx:key="productId">
+            <view bindtap="addShoppingCartForIndex" class="product-item-box {{product.maxAmount===0?'saleout':''}} {{ABtest===1?'product-item-box-partC':''}}" data-pop="true" data-product="{{product}}" data-recommend="{{true}}" id="productItem" wx:if="{{index===0||index===1}}">
+                <view class="product-mask"></view>
+                <view class="product-pic-box">
+                    <image class="product-pic" src="{{product.defaultPicUrl}}"></image>
+                    <view class="product-disc" wx:if="{{product.promotionMsg}}">{{product.promotionMsg}}</view>
+                    <view class="sell-out-box" wx:if="{{product.maxAmount==0}}">
+                        <text class="sell-out-msg">售罄</text>
+                    </view>
+                </view>
+                <view class="product-info">
+                    <view class="product-title">
+                        <text class="product-name">{{product.name}}</text>
+                        <view class="product-tag" wx:if="{{index===0}}">
+                            <text class="product-tag-item" style="background-color:#FF6600;">经典</text>
+                        </view>
+                        <view class="product-tag" wx:if="{{index===1}}">
+                            <text class="product-tag-item" style="background-color:#68D373;">新品</text>
+                        </view>
+                    </view>
+                    <text class="product-ename">{{product.enName}}</text>
+                    <view class="product-bottom">
+                        <text class="product-select" wx:if="{{product.standardMulti==1&&product.standard.length>1}}">换口味</text>
+                        <view class="product-price">
+                            <text class="after">￥{{product.discountPrice}}</text>
+                        </view>
+                        <view>
+                            <label catchtap="addShoppingCartForIndex" class="product-add" data-kindname="{{item.kindName}}" data-product="{{product}}" data-recommend="{{true}}" id="productAddBtn"></label>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view bindtap="addShoppingCartForIndex" class="product-item-box {{product.maxAmount===0?'saleout':''}}" data-pop="true" data-product="{{product}}" id="productItem" wx:else>
+                <view class="product-mask"></view>
+                <view class="product-pic-box">
+                    <image class="product-pic" src="{{product.defaultPicUrl}}"></image>
+                    <view class="product-disc" wx:if="{{product.promotionMsg}}">{{product.promotionMsg}}</view>
+                    <view class="sell-out-box" wx:if="{{product.maxAmount==0}}">
+                        <text class="sell-out-msg">售罄</text>
+                    </view>
+                </view>
+                <view class="product-info">
+                    <view class="product-title">
+                        <text class="product-name">{{product.name}}</text>
+                        <view class="product-tag" wx:if="{{product.tagList}}">
+                            <text class="product-tag-item" style="{{tagItem.bgColor?'background-color:'+tagItem.bgColor:''}}" wx:for="{{product.tagList}}" wx:for-item="tagItem" wx:key="content">{{tagItem.content}}</text>
+                        </view>
+                    </view>
+                    <text class="product-ename">{{product.enName}}</text>
+                    <view class="product-bottom">
+                        <text class="product-select" wx:if="{{product.standardMulti==1&&product.standard.length>1}}">换口味</text>
+                        <view class="product-price" wx:if="{{product.initialPrice==product.discountPrice}}">
+                            <text class="bold">
+                                <text class="unit">￥</text>{{product.initialPrice}}</text>
+                        </view>
+                        <view class="product-price" wx:else>
+                            <text class="after">
+                                <text class="unit">￥</text>{{product.discountPrice}}</text>
+                            <text class="before">￥{{product.initialPrice}}</text>
+                        </view>
+                        <view>
+                            <label class="product-limit" wx:if="{{product.stockSurplusAmount&&product.stockSurplusAmount>0}}">剩
+                <text class="num-red">{{product.stockSurplusAmount}}</text>{{product.unit}}</label>
+                            <label catchtap="addShoppingCartForIndex" class="product-add" data-kindname="{{item.kindName}}" data-product="{{product}}" id="productAddBtn"></label>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+</template>
+<template name="menuItemPartB">
+    <view bindtap="tapMenuItem" class="menu-item menu-item-partB {{productActiveIndex===idx?'active':''}}" data-id="{{idx}}" id="menu-item">
+        <image class="hot-icon {{judge.judegVal(item.kindName)?'max-margin':''}}" src="../../resources/images/menu/hot-icon.png" wx:if="{{idx===0}}"></image>
+        <view class="text {{idx===0?'text-left':''}}">{{item.kindName}}</view>
+        <view class="label" style="background: {{item.timeDiscountInfo.bgColor}}" wx:if="{{item.isTimeDiscount}}">
+            <text style="color: {{item.timeDiscountInfo.nameColor}}; background: {{item.timeDiscountInfo.bgColor}}">{{item.timeDiscountInfo.name}}</text>
+        </view>
+    </view>
+</template>
+<wxs module="judge">
+module.exports = ({
+    judegVal: (function(val) {
+        if (getRegExp('[a-zA-Z0-9]').test(val)) {
+            return (false)
+        };
+        if (val.length >= 5) {
+            return (true)
+        };
+        return (false)
+    }),
+});
+</wxs>

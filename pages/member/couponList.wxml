@@ -1,0 +1,55 @@
+<view>
+<view class="tab-left">
+    <view class="{{curHdIndex=='0'? 'active' : 'tab'}}" id="0" data-id="0" bindtap="tab">
+        <text>商城劵（{{CouponCount0}}）</text>
+    </view>
+    <view class="{{curHdIndex=='1'? 'active' : 'tab'}}" id="1" data-id="1" bindtap="tab">
+        <text>门店劵（{{CouponCount1}}）</text>
+    </view>
+</view>
+<view class="coupon_box">
+    <view wx:for="{{currentList}}" wx:for-item="c" wx:key="index"
+     class="{{curHdIndex==0?'coupon_list0':'coupon_list1'}}">
+        <view class="ndb_price">
+            <view class="ndb_price_top" wx:if="{{c.couponsType==1}}">
+             <text>{{c.bigNum}}</text>
+             <text>.{{c.smallNum}}折</text>
+            </view>
+            <view class="ndb_price_top" wx:elif="{{c.couponsType==4}}">
+                <text>0</text>
+                <text>.0折</text>
+            </view>
+            <view class="ndb_price_top" wx:elif="{{c.couponsType==6}}">
+                <text>{{c.bigNum}}</text>
+                <text>.{{c.smallNum}}元</text>
+            </view>
+            <text class="ndb_price_bottom">{{curHdIndex=='0'? '小程序专享' : '门店专享'}} </text>
+        </view>
+        <view class="ndb_detail">
+            <view class="ndb_detail_left">
+                <span class="ndb_detail_left_title">{{curHdIndex=='0'?c.sourceName:'券码：'+c.couponsCode}}</span>
+            </view>
+            <view class="ndb_detail_right">
+                <text class="ndb_detail_desc">有限期至{{c.expireDateStr}}</text>
+            </view>
+            <view class="ndb_time">
+                <text class="ndb_time_left">{{c.useRules}}</text>
+            </view>
+           <view class="expire" wx:if="{{c.currentDayExpire==1}}">
+                <image  src="../../resources/images/index/data.png" />
+           </view>
+              
+        </view>
+        
+    </view>
+  
+    <view class="empty" wx:if="{{!currentList.length}}">
+      <image src="https://www.eecup.cn/tea/image/eecup/coupons_empty.png" />
+      <view>
+        暂无优惠劵
+      </view>
+    </view>
+    <!-- <view wx:if="{{currentList.length == 0}}" class='not-data-txt'>暂无数据</view>   -->
+</view>
+
+</view>

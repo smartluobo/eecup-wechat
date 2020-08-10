@@ -1,0 +1,635 @@
+.home {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    font-family: PingFangSC-Medium;
+}
+
+.banner-box {
+    width: 100%;
+    overflow: hidden;
+    height:400rpx;
+}
+
+.banner-box swiper {
+    height: 100%;
+}
+
+.banner-image {
+    width: 100%;
+    display: inline-block;
+}
+
+.list-box .list {
+    min-height: 150rpx;
+    width: 666rpx;
+    box-sizing: border-box;
+    margin: 0rpx auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.listImg {
+    width: 670rpx;
+    margin: 0rpx auto 30rpx auto;
+    height: 112rpx;
+    display: block;
+    border-radius: 16rpx;
+}
+
+.list>image {
+    width: 88rpx;
+    height: 88rpx;
+    margin: auto 0rpx;
+}
+
+.list-buttomBorder {
+    border-bottom: 1rpx solid #e6e6e6;
+}
+
+.list-text {
+    display: flex;
+    flex-direction: column;
+    margin: auto 0rpx;
+}
+
+.activityText {
+    width: 180rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 24rpx;
+    text-align: center;
+    color: #fff;
+    background: #222575;
+    border-radius: 37rpx;
+    margin: auto 0rpx;
+}
+
+.list-text>label:first-child {
+    font-family: PingFangSC-Medium;
+    font-size: 34rpx;
+    line-height: 48rpx;
+    font-weight: bold;
+    color: #333;
+    letter-spacing: 0;
+}
+
+.list-text>label:last-child {
+    font-family: PingFangSC-Regular;
+    font-size: 22rpx;
+    line-height: 32rpx;
+    color: #666;
+    letter-spacing: 0;
+}
+
+.lsit-sendTip {
+    font-family: PingFangSC-Medium;
+    font-size: 20rpx;
+    line-height: 20rpx;
+    color: #fff;
+    vertical-align: middle;
+    letter-spacing: 1rpx;
+    background: #e06e11;
+    display: inline-block;
+    padding: 6rpx 10rpx;
+    border-radius: 4rpx;
+    font-weight: 0;
+    margin-bottom: 6rpx;
+}
+
+.coupon {
+    height: 100%;
+    min-height: 100vh;
+    width: 100%;
+    background: #000;
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    z-index: 9999;
+}
+
+.envelopeBox {
+    position: absolute;
+    top: 0;
+    margin: auto;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.envelopeBox .envelope {
+    position: relative;
+    width: 600rpx;
+    height: 730rpx;
+    background: url(https://www.eecup.cn/tea/image/eecup/icon/index/new_coupon_open.jpg) center no-repeat;
+    background-size: contain;
+    border-radius: 8rpx;
+}
+
+.envelopeBox .received {
+    background: url(https://www.eecup.cn/tea/image/eecup/icon/index/coupon_use.png) center no-repeat;
+    background-size: contain;
+}
+
+.envelopeBox .envelope .submitBtnBox {
+    /* width: 100%;
+    height: 100%; */
+    background-color: transparent;
+}
+/* .envelopeBox .envelope .submitBtn {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+} */
+.submitBtn{
+    width: 490rpx;
+    height: 100rpx; 
+    background-color: transparent;
+ 
+}
+.submitBtnBox{
+    padding-left: 60rpx;
+    padding-right: 60rpx;
+    padding-top: 590rpx;
+    padding-bottom: 30rpx;
+}
+.envelopeBox .envelope .submitBtn::after{
+  border:none;
+}
+
+
+.envelopeBox .envelope .closeBtn {
+    width: 75rpx;
+    height: 75rpx;
+    background: url(https://www.eecup.cn/tea/image/eecup/icon/close.png) center no-repeat;
+    background-size: contain;
+    position: absolute;
+    bottom: -140rpx;
+    left: 267.5rpx;
+}
+
+.millionBox {
+    font-family: PingFangSC-Medium;
+    position: absolute;
+    margin: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.millionBox .million {
+    position: relative;
+    width: 522rpx;
+    height: 698rpx;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 8rpx;
+}
+
+.millionBox .million .closeBtn {
+    width: 32rpx;
+    height: 32rpx;
+    background: url(https://www.eecup.cn/tea/image/eecup/icon/close.png) center no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: -36rpx;
+    right: -49rpx;
+}
+
+.millionCenter {
+    overflow: hidden;
+    text-align: center;
+}
+
+.millionUseImg {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    margin: 0rpx auto;
+    display: block;
+    margin-top: 54rpx;
+}
+
+.millionUserName {
+    text-align: center;
+    font-size: 24rpx;
+    margin-top: 8rpx;
+    letter-spacing: 2rpx;
+}
+
+.lineOne,.lineTwo,.lineThree {
+    font-family: PingFangSC-Medium;
+    font-size: 40rpx;
+    color: #FF0000;
+    text-align: center;
+    margin-top: 24rpx;
+    line-height: 40rpx;
+}
+
+.inLine_lineOne {
+    font-family: PingFangSC-Medium;
+    font-size: 40rpx;
+    color: #3e3e3e;
+    text-align: center;
+    margin-top: 24rpx;
+    line-height: 40rpx;
+}
+
+.lineTwo {
+    margin-top: 26rpx;
+}
+
+.lineThree {
+    margin-top: 36rpx;
+}
+
+.buyNum {
+    font-size: 48rpx;
+    color: #304fc5;
+    margin: 0px 4rpx;
+}
+
+.needBuyNum {
+    font-style: italic;
+    font-size: 60rpx;
+    margin-right: 10rpx;
+    color: #304fc5;
+}
+
+.activityTip {
+    font-size: 24rpx;
+    margin-top: 40rpx;
+}
+
+.millionBox .million .millionBtn {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    position: absolute;
+    top: 380rpx;
+    left: 0rpx;
+}
+
+.millionBox .million .millionBtn::after {
+    content: none;
+}
+
+.totalMoney {
+    color: #f9b627;
+    font-size: 48rpx;
+    margin: 0px 4rpx;
+}
+
+.openCoupon,.awakenCoupon {
+    width: 100%;
+    min-height: 100%;
+    position: absolute;
+    left: 0rpx;
+    top: 0rpx;
+    background-color: rgba(0,0,0,0.50);
+    z-index: 90;
+}
+
+.couponForm {
+    width: 520rpx;
+    height: 696rpx;
+    background-image: url('https://www.eecup.cn/tea/image/eecup/icon/index/icon2.0_homeDefault.png');
+    background-size: 520rpx 696rpx;
+    margin: 210rpx auto 130rpx auto;
+    position: relative;
+    border-radius: 6rpx;
+    box-sizing: border-box;
+    z-index: 100;
+}
+
+.couponForm .closeBtn {
+    width: 32rpx;
+    height: 32rpx;
+    background: url(https://www.eecup.cn/tea/image/eecup/icon/index/icon2.0_closeBtn.png) center no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: -45rpx;
+    right: -50rpx;
+}
+
+.couponForm .couponItem {
+    width: 418rpx;
+    height: 78rpx;
+    background: url(https://www.eecup.cn/tea/image/eecup/icon/index/icon2.0_coupon.png) no-repeat center;
+    background-size: cover;
+    margin: 0rpx auto 0rpx auto;
+    display: flex;
+}
+
+.couponOne {
+    position: absolute;
+    top: 494rpx;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.couponTwo1 {
+    position: absolute;
+    top: 412rpx;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.couponTwo2 {
+    position: absolute;
+    top: 506rpx;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.couponNum {
+    width: 115rpx;
+    display: inline-block;
+    line-height: 78rpx;
+    font-family: PingFangSC-Medium;
+    font-size: 30rpx;
+    color: #222773;
+    text-align: center;
+    font-weight: 800;
+}
+
+.numSize {
+    font-size: 32rpx;
+    margin-right: 2rpx;
+}
+
+.couponForm .couponBtn {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0rpx;
+    top: 0rpx;
+    background-color: transparent;
+    z-index: 110;
+}
+
+.couponForm .couponBtn::after {
+    content: none;
+}
+
+.couponItem .couponName {
+    width: 303rpx;
+    height: 78rpx;
+    line-height: 78rpx;
+    text-align: left;
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    box-sizing: border-box;
+    padding: 0rpx 20rpx 0rpx 40rpx;
+    color: #333;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.prefecture {
+    padding: 24rpx 5rpx 0 5rpx;
+    height: auto;
+    background: #fff;
+    overflow: hidden;
+}
+
+.prefecture_item {
+    float: left;
+    height: auto;
+    background: #fff;
+    position: relative;
+    width: 50%;
+    text-align: center;
+}
+
+.prefecture_img {
+    width: 360rpx;
+    height: 190rpx;
+}
+
+.goodsBoxTitle {
+    /* text-align: center;
+    height: 88rpx;
+    line-height: 88rpx;
+    font-size: 36rpx; */
+    height: 88rpx;
+    width: 750rpx;
+    background: url('https://www.eecup.cn/tea/image/eecup/index_recommend.png') no-repeat center;
+    background-size: 382rpx 40rpx;
+}
+
+.goodsBox {
+    padding: 5rpx 15rpx 5rpx;
+    overflow: hidden;
+    background: #f8f8f8;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.goodsList {
+    margin-top: 10rpx;
+    width: 49.2%;
+    background: #fff;
+}
+
+.goods {
+    background: #fff;
+    width: 100%;
+}
+
+.goodsImgBox {
+    width: 100%;
+    position: relative;
+    padding-top: 100%;
+    height: 0;
+}
+
+.goodsImg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 22;
+}
+
+.goodsText {
+    background: #fff;
+    width: 100%;
+    padding-bottom: x 10rpx;
+}
+
+.goodsTitle {
+    font-size: 24rpx;
+    line-height: 44rpx;
+    color: #333;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 0 10rpx;
+}
+
+.activityTagBox {
+    height: 46rpx;
+    padding: 16rpx 10rpx 0;
+}
+
+.activityTag {
+    padding: 0 5rpx;
+    color: #fff;
+    width: auto;
+    height: 32rpx;
+    background: #ff8587;
+    border-radius: 5rpx;
+    font-size: 0.6875rem;
+    text-align: center;
+    line-height: 32rpx;
+    float: left;
+    margin-top: 6rpx;
+    margin-right: 10rpx;
+}
+
+.labelTag {
+    padding: 0 5rpx;
+    color: #fff;
+    width: auto;
+    height: 32rpx;
+    background: #ffb81e;
+    border-radius: 5rpx;
+    font-size: 0.6875rem;
+    text-align: center;
+    line-height: 32rpx;
+    float: left;
+    margin-top: 6rpx;
+    margin-right: 10rpx;
+}
+
+.goodsName {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.goodsSubTitle {
+    font-size: 30rpx;
+    line-height: 42rpx;
+    padding-bottom: 6rpx;
+    /* color: #999; */
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 0 10rpx;
+}
+
+.price_goods {
+    font-size: 26rpx;
+    color: #ff5e6b;
+    padding: 0 10rpx;
+}
+
+.cplbright4-l {
+    font-size: 20rpx;
+    align-items: center;
+}
+
+.cplbright4-l text:nth-child(1) {
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #ff4544;
+    margin-right: 15rpx;
+}
+
+.cplbright4-l text:nth-child(2) {
+    font-size: 20rpx;
+    text-decoration: line-through;
+    color: #A9A9A9;
+}
+
+.goodsActiTitle {
+    font-size: 22rpx;
+    line-height: 42rpx;
+    padding-bottom: 6rpx;
+    color: #999;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 0 10rpx;
+}
+
+
+.sell-out-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sell-out-msg {
+    opacity: 1;
+    display: block;
+    width: 92rpx;
+    height: 92rpx;
+    background-color: rgba(242,203,164,0.8);
+    border-radius: 100%;
+    color: #fff;
+    font-size: 28rpx;
+    text-align: center;
+    line-height: 92rpx;
+}
+.nav_box{
+    width: 100%;
+    height: 170rpx;
+    overflow: hidden;
+    /* padding: 0 10px; */
+}
+.nav_list{
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+.nav_list view{
+    /* background: #333; */
+  
+    padding: 40rpx 20rpx 0;
+}
+.nav_list view image{
+    width: 60rpx;
+    height: 60rpx;
+}
+.nav_list text{
+    color: #666;
+    font-size: 28rpx;
+    line-height: 40rpx;
+}
+.content_banner{
+    height: 200rpx;
+    width: 730rpx;
+    overflow: hidden;
+    padding: 10rpx;
+    border-top: 15rpx solid #f2f2f2;
+    border-bottom: 15rpx solid #f2f2f2;
+}
+.content_banner view:last-child{
+    float: right;
+    padding: 10rpx;
+}
+.content_banner view{
+    float: left;
+    padding: 10rpx;
+}
+.content_banner image{
+    height: 180rpx;
+    width: 345rpx;
+}

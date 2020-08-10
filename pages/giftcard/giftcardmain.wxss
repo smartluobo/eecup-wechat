@@ -1,0 +1,136 @@
+page {
+    border-top: 1rpx solid #EBEBEB;
+}
+
+page,.wrap {
+    height: 100%;
+    position: relative;
+    background: #F7F7F7;
+}
+
+.gift_record {
+    color: #666;
+    font-size: 26rpx;
+    line-height: 72rpx;
+    text-align: center;
+    background: #fff;
+}
+
+.gift_record text {
+    position: relative;
+}
+
+.gift_record text::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -20rpx;
+    transform: translateY(-50%) rotateZ(45deg);
+    width: 8rpx;
+    height: 8rpx;
+    background: transparent;
+    border: 2rpx solid #666;
+    border-color: #666 #666 transparent transparent;
+}
+
+.nav_wrap {
+    position: relative;
+    display: flex;
+    text-align: center;
+    padding: 0 30rpx;
+    background: #fff;
+}
+
+.nav_wrap::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2rpx;
+    top: 0;
+    left: 0;
+    background: #E5E5E5;
+    transform: scaleY(.5);
+}
+
+.nva_item {
+    flex: 1;
+    font-size: 24rpx;
+    line-height: 3;
+}
+
+.nva_item text {
+    position: relative;
+}
+
+.nva_item.active {
+    color: #f2cba4;
+    font-weight: bold;
+}
+
+.nva_item.active text::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8rpx;
+    width: 100%;
+    border: 2rpx solid #f2cba4;
+    transform: scaleY(.5);
+}
+
+.card_body {
+    display: flex;
+    min-height: 100%;
+    flex-wrap: wrap;
+    background: #F7F7F7;
+    padding: 30rpx;
+    align-content: flex-start;
+}
+
+.card_item {
+    width: 336rpx;
+    height: 262rpx;
+    margin-right: 18rpx;
+    margin-bottom: 24rpx;
+    background: #fff;
+    border-radius: 8rpx;
+    overflow: hidden;
+    box-shadow: 0 8rpx 20rpx rgba(0,0,0,.06);
+}
+
+.card_item.loading {
+    background: #f6f6f6;
+}
+
+.card_item:nth-of-type(even) {
+    margin-right: 0;
+}
+
+.card_img,.card_img image {
+    width: 336rpx;
+    height: 210rpx;
+}
+
+.card_title {
+    font-size: 24rpx;
+    line-height: 52rpx;
+    color: #666;
+    text-align: center;
+    padding: 0 20rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.not_card_img {
+    display: block;
+    width: 104rpx;
+    height: 108rpx;
+    margin: 180rpx auto 40rpx;
+}
+
+.not_txt {
+    text-align: center;
+    font-size: 26rpx;
+    line-height: 36rpx;
+    color: #666;
+}

@@ -1,0 +1,44 @@
+<view class="introduce">
+    <view class="imgIntroduce"></view>
+    <view class="friendBox">
+        <view class="friendTitle">分享幸运， 就这一杯！</view>
+        <view class="friendSubTitle">给好友送免费咖啡，TA喝你也得</view>
+        <view class="btnGroup">
+            <view class="sharefriendBox">
+                <button bindtap="funWxFriendShare" class="iconWxFriend" id="wx_friend_share" openType="share"></button>
+                <view class="friendText">微信好友</view>
+            </view>
+            <view class="pictureBox">
+                <button bindtap="goProductPic" class="iconProductPic" id="pic_product"></button>
+                <view class="friendText">生成美图</view>
+            </view>
+        </view>
+    </view>
+    <view class="getBox">
+        <view class="introductionTitle">已获赠杯</view>
+        <view class="noGet" wx:if="{{!shareRecord||shareRecord.number==0}}">还没有获得奖励,快送好友喝免费大师咖啡</view>
+        <view class="get" wx:else>
+            <text>已成功邀请</text>
+            <text class="getColor">{{shareRecord.number}}名</text>
+            <text>小伙伴，共获得</text>
+            <text class="getColor">{{shareRecord.couponNumber}}杯</text>免费赠饮
+    </view>
+        <view class="getFriend" wx:for="{{shareRecord.shareRecords}}" wx:key="{{index}}">
+            <view>
+                <image class="iconFriend" src="{{item.headUrl}}"></image>
+                <text class="friendName">{{item.name}}</text>
+            </view>
+            <view class="friendTime">{{item.dateTime}}</view>
+        </view>
+    </view>
+    <view class="splitBar"></view>
+    <view class="introductionTitle activeTitle">活动细则</view>
+    <image bindtap="activeRuleOpen" class="iconOpen" id="iconActiveRule" src="https://www.eecup.cn/tea/image/eecup/icon/index/icon_open.png" wx:if="{{!open}}"></image>
+    <view class="activeRule" wx:if="{{open}}">
+        <view>1. 被推荐的新用户输入手机号，即可获赠1张新人免费券(全场通用)+6张5折券，可用于消费饮品系列和轻食系列中的商品（仅限1件商品，不含配送费），新人免费券有效期1年。（同一手机号，同一手机仅可领取一次）</view>
+        <view>2. 您推荐的新客户只要产生消费（含消费新人免费券），您即获得一杯24元体验券，可用于购买大师咖啡、零度拿铁系列饮品，体验券有效期1年</view>
+        <view>3. 您推荐的新客户同一手机设备、同一手机号码仅可领取一次。</view>
+        <view>4. 您邀请好友所获赠的体验券仅限本人使用，用于商业牟利将有封号风险。</view>
+    </view>
+    <image bindtap="activeRuleClose" class="iconClose" id="activeRuleClose" src="https://www.eecup.cn/tea/image/eecup/icon/index/icon_close.png" wx:if="{{open}}"></image>
+</view>

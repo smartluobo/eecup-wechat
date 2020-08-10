@@ -1,0 +1,39 @@
+<view class="pay-agreement">
+    <view class="hide" title="支付知情授权书"></view>
+    <view class="paymentProtocol">
+        <view class="paymentProtocolContent">
+            <view class="paymentProtocolTip">
+                <text style="color: #f2cba4">特别提示：</text>
+                <text>您在同意授权书前应完整、仔细地阅读本授权书，您勾选同意将被视为完全理解并接受以下全部授权书条款。您在eecup e杯上勾选同意本支付授权书后，即成为本支付授权书之授权人，该授权即刻发生效力。您如果不同意以下授权书条款，请勿勾选同意，且不要进行后续操作。</text>
+            </view>
+            <view class="paymentProtocolBook">
+                <view class="paymentProtocolBookTitle">
+                    支付授权书
+                </view>
+                <view class="paymentProtocolBookClause mb40">
+                    一、授权人兹授权eecup e杯品牌所属公司深圳市时代芸商科技有限公司（以下简称“乙方”）通过第三方支付平台划扣服务费和商品费用。
+                </view>
+                <view class="paymentProtocolBookClause mb40">
+                    二、服务费是指授权人通过eecup e杯小程序提交的订单上记载的总费用包含但不仅限于商品金额和外送费用。
+                </view>
+                <view class="paymentProtocolBookClause mb40">
+                    三、在授权人成功提交订单后，乙方依照eecup e杯上公布的收费规则计算服务费用。授权人应在2分钟内根据页面指示完成支付。
+                </view>
+                <view class="paymentProtocolBookClause mb40">
+                    四、如因授权人在第三方支付平台中的支付账户被锁定、无效、盗用、被往来银行拒绝等，导致付款失败时，乙方将放弃为甲方提供订单的商品和其他服务
+                </view>
+                <view class="paymentProtocolBookClause mb40">
+                    五、授权人如有冒用他人支付账户之行为，后果自负。与eecup e杯品牌无任何关系
+                </view>
+                <view class="paymentProtocolBookClause mb40">
+                    六、在使用eecup e杯服务的过程中，如授权人未遵从相关规则，则乙方有权拒绝为授权人提供相关服务，且无需承担任何责任。
+                    因授权人的过错导致的任何损失由授权人承担，该等过错包括但不限于：不按照交易提示操作，未及时进行交易操作等一切违规操作。
+                </view>
+                <view class="paymentProtocolBookClause mb40">
+                    七、授权人同意其消费产生的服务费用以乙方记录的数据为准，并通过eecup e杯告知授权人。
+                    授权人对服务费用有异议或扣款金额与应缴费用金额不符时，可及时与您当前店铺店长联系。联系电话13530852671
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

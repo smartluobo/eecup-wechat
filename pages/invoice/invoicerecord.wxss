@@ -1,0 +1,71 @@
+.invoiceRecord {
+    min-height: 100vh;
+    background: #fbfbfb;
+    box-sizing: border-box;
+}
+
+.manageContent {
+    background-color: #fff;
+}
+
+.manageList {
+    font-family: PingFangSC-Regular;
+    height: 256rpx;
+    padding-left: 30rpx;
+    border-top: 1rpx solid rgba(229,229,229,0.3);
+    border-bottom: 1rpx solid rgba(229,229,229,0.3);
+    margin-bottom: 20rpx;
+    background: #fff;
+    position: relative;
+    font-size: 28rpx;
+    line-height: 40rpx;
+    color: #333;
+    display: flex;
+}
+
+.manageList::after {
+    content: ' ';
+    width: 16rpx;
+    height: 16rpx;
+    border-right: 3rpx solid #e5e5e5;
+    border-top: 3rpx solid #e5e5e5;
+    position: absolute;
+    right: 32rpx;
+    top: 120rpx;
+    transform: rotate(45deg);
+}
+
+.noBorder {
+    border-bottom: none;
+}
+
+.letfName {
+    width: 140rpx;
+    margin-top: 30rpx;
+}
+
+.rightValue {
+    margin-top: 30rpx;
+}
+
+.letfName>view,.rightValue>view {
+    margin-bottom: 12rpx;
+}
+
+.rightValue>view {
+    color: #2a2a2a;
+}
+
+.icon_no {
+    width: 250rpx;
+    height: 150rpx;
+    display: block;
+    margin: 0rpx auto 40rpx auto;
+    padding-top: 228rpx;
+}
+
+.noText {
+    text-align: center;
+    color: #666;
+    font-size: 26rpx;
+}

@@ -1,0 +1,76 @@
+/* @import "../../assets/tpls/navItem/navItem.wxss"; */
+
+scroll-view {
+    /* background: #fff; */
+    min-height: 100vh;
+}
+
+.top {
+    overflow: hidden;
+    background-image: url(https://www.eecup.cn/tea/image/eecup/new_user_gift_image.png?v=4);
+    width: 750rpx;
+    height: 1334rpx;
+    background-size:750rpx 1334rpx;
+    /* height: 278rpx; */
+    /* padding: 40rpx 40rpx; */
+    font-size: 32rpx;
+    line-height:60rpx;
+    /* opacity: 0.7; */
+    /* color: #fff;
+    background: #F2CBA4; */
+    position: relative;
+}
+.share{
+    text-align: center;
+    font-size: 45rpx;
+    height: 90rpx;
+    width: 500rpx;
+    margin: 0 auto;
+    background: url(https://www.eecup.cn/tea/image/eecup/new_user_gift_button.png?v=4) no-repeat;
+    background-size:500rpx 90rpx;
+    position: absolute;
+    top:1035rpx;
+    left:50%;
+    margin-left: -250rpx;
+    z-index: 4000;
+}
+.title{
+    text-align: center;
+    line-height: 80rpx;
+    font-size: 40rpx;
+}
+
+.top::after {
+    content: '\20';
+    position: absolute;
+    top: 120rpx;
+    color: #333;
+}
+
+.top .avatarWrap {
+    width: 110rpx;
+    height: 110rpx;
+    margin: 0 34rpx 0 42rpx;
+    border-radius: 50%;
+    box-shadow: 0 0 50rpx #ccc;
+    border: 1px solid #fff;
+    overflow: hidden;
+}
+
+.top .avatar image {
+    width: 100%;
+    height: 100%;
+}
+
+.top .text {
+    display: flex;
+    height: 110rpx;
+    font-size: 34rpx;
+    color: #333;
+    line-height: 130%;
+    word-break: break-all;
+    word-wrap: break-word;
+    flex: 1;
+    align-items: center;
+}
+

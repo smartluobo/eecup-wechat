@@ -1,0 +1,37 @@
+<view class="coupon_box">
+    <view wx:for="{{couponList}}" wx:for-item="c" wx:key="index" bindtap="radioIsChecked" data-index="{{index}}"
+     class="{{curHdIndex==0?'coupon_list0':'coupon_list1'}}">
+        <view class="ndb_price">
+            <view class="ndb_price_top" wx:if="{{c.couponsType==1}}">
+             <text>{{c.bigNum}}</text>
+             <text>.{{c.smallNum}}折</text>
+            </view>
+            <view class="ndb_price_top" wx:elif="{{c.couponsType==4}}">
+                <text>0</text>
+                <text>.0折</text>
+            </view>
+            <view class="ndb_price_top" wx:elif="{{c.couponsType==6}}">
+                <text>{{c.bigNum}}</text>
+                <text>.{{c.smallNum}}元</text>
+            </view>
+            <text class="ndb_price_bottom">小程序专享 </text>
+        </view>
+        <view class="ndb_detail">
+            <view class="ndb_detail_left">
+                <span class="ndb_detail_left_title">{{c.sourceName}}</span>
+            </view>
+            <view class="ndb_detail_right">
+                <text class="ndb_detail_desc">有限期至{{c.expireDateStr}}</text>
+            </view>
+            <view class="ndb_time">
+                <text class="ndb_time_left">{{c.useRules}}</text>
+            </view>
+           <view class="expire" wx:if="{{c.currentDayExpire==1}}">
+                <image  src="../../resources/images/index/data.png" />
+           </view>
+              
+        </view>
+        
+    </view>
+    <!-- <view wx:if="{{currentList.length == 0}}" class='not-data-txt'>暂无数据</view>   -->
+</view>

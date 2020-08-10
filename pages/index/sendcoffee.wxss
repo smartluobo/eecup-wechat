@@ -1,0 +1,64 @@
+.snedCoffee {
+    background: #f7f7f7;
+    box-sizing: border-box;
+    padding-top: 40rpx;
+    min-height: 100vh;
+}
+
+.listBox {
+    width: 670rpx;
+    height: 160rpx;
+    margin: 0rpx auto 40rpx auto;
+    background-color: #fff;
+    border: 0 solid #e5e5e5;
+    box-shadow: 0 2rpx 8rpx 0 rgba(0,0,0,0.06);
+    border-radius: 6rpx;
+}
+
+.listBox .listImg {
+    width: 80rpx;
+    height: 80rpx;
+    display: inline-block;
+    margin: 40rpx 22rpx auto 40rpx;
+}
+
+.listText {
+    display: inline-block;
+    width: 320rpx;
+    height: 80rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 22rpx;
+    color: #999;
+    vertical-align: top;
+    margin-top: 36rpx;
+}
+
+.listTitle {
+    font-family: PingFangSC-Medium;
+    font-size: 34rpx;
+    line-height: 48rpx;
+    color: #333;
+    display: block;
+    margin-bottom: 12rpx;
+}
+
+.listBtn {
+    width: 134rpx;
+    height: 56rpx;
+    display: inline-block;
+    background: #f2cba4;
+    border-radius: 6rpx;
+    margin-left: 36rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    color: #fff;
+    line-height: 56rpx;
+    text-align: center;
+    vertical-align: top;
+    margin-top: 52rpx;
+    padding: 0rpx;
+}
+
+button::before,button::after {
+    content: none;
+}
